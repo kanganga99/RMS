@@ -17,7 +17,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="../../index2.html"><b>Admin</b>Hannah</a>
+            <a href="../../index2.html"><b>Admin</b>Authenticate</a>
         </div>
         <!-- /.login-logo -->
         <div class="card">
@@ -68,15 +68,15 @@
                     </div>
                 </form>
 
-                <!-- <div class="social-auth-links text-center mb-3">
+        <div class="social-auth-links text-center mb-3">
         <p>- OR -</p>
-        <a href="#" class="btn btn-block btn-primary">
-          <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+        <a href="{{ route('admin.register') }}" class="btn btn-block btn-info ">
+           Register
         </a>
-        <a href="#" class="btn btn-block btn-danger">
+        {{-- <a href="#" class="btn btn-block  btn-danger">
           <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-        </a>
-      </div> -->
+        </a> --}}
+      </div>
                 <!-- /.social-auth-links -->
 
                 <p class="mb-1">

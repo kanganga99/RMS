@@ -26,6 +26,8 @@ Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->group( function
     Route::post('/login/owner','AdminController@Login')->name('admin.login');
     Route::get('/dashboard','AdminController@Dashboard')->name('admin.dashboard')->middleware('admin');
     Route::get('/logout','AdminController@AdminLogout')->name('admin.logout')->middleware('admin');
+    Route::get('/register','AdminController@AdminRegister')->name('admin.register');
+    Route::post('/register/create','AdminController@AdminRegisterCreate')->name('admin.register.create');
 
 });
 
