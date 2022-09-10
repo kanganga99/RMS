@@ -10,3 +10,5 @@ php artisan make:middleware Admin
 php artisan make:controller Admin/AdminController
 php artisan make:seeder AdminSeeder
 php artisan make:factory AdminFactory
+> php artisan migrate
+php artisan make:model Agent -m

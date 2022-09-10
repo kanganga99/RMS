@@ -31,6 +31,18 @@ Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->group( function
 
 });
 
+Route::prefix('agent')->namespace('App\Http\Controllers\Agent')->group( function (){
+
+
+    Route::get('/login','AgentController@Index')->name('agent_login-form');
+    Route::get('/dashboard','AgentController@AgentDashboard')->name('agent.dashboard');
+    Route::post('/login/owner','AgentController@AgentLogin')->name('agent.login');
+    Route::get('/logout','AgentController@AgentLogout')->name('agent.logout')->middleware('agent');
+    Route::get('/register','AgentController@AgentRegister')->name('agent.register');
+    Route::post('/register/create','AgentController@AgentRegisterCreate')->name('agent.register.create');
+
+});
+
 
 Route::get('/', function () {
     return view('welcome');

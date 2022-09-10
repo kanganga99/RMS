@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin Login</title>
+    <title>Agent Login</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https:'//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -17,7 +17,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="../../index2.html"><b>Admin</b>Authenticate</a>
+            <a href=""><b>Agent</b>Login</a>
         </div>
         <!-- /.login-logo -->
         <div class="card">
@@ -33,7 +33,7 @@
                 </div>
                 @endif
                 
-                <form action="{{ route('admin.login') }}" method="post">
+                <form action="{{ route('agent.login') }}" method="post">
                     {{ csrf_field() }}
                     <div class="input-group mb-3">
                         <input type="email" class="form-control" name="email" placeholder="Email">
@@ -70,7 +70,7 @@
 
         <div class="social-auth-links text-center mb-3">
         <p>- OR -</p>
-        <a href="{{ route('admin.register') }}" class="btn btn-block btn-info ">
+        <a href="{{ route('agent.register') }}" class="btn btn-block btn-info ">
            Register
         </a>
         {{-- <a href="#" class="btn btn-block  btn-danger">

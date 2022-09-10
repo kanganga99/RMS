@@ -26,7 +26,7 @@ class AdminController extends Controller
         // dd($request->all());
         $check = $request->all();
         if(Auth::guard('admin')->attempt(['email'=> $check['email'] , 'password'=> $check['password']  ])){
-            return redirect()->route('admin.dashboard')->with('error','Admin Login Successfully');
+            return redirect()->route('admin.dashboard')->with('error','Admin Logged in Successfully');
         }else{
             return back()->with('error','invalid credentials');
         }
