@@ -53,18 +53,12 @@
                      <!-- Menu Footer-->
                      <div class=" dropdown-item">
                          <a href="#" class="btn btn-default btn-flat">Profile</a>
-                         <div class="dropdown-divider"></div>
-
-                         <div class="btn btn-default pull-right">
-                             <a href="" onclick="event.preventDefault();
-                         document.getElementById('').submit();">
-                                 Logout
-                             </a>
-                             <form id="logout-form" action="" method="POST" style="display: none;">
-                                 {{-- {{ csrf_field() }} --}}
-                             </form>
-                             {{-- </div> --}}
-                         </div>
+                     </div>
+                     <div class="dropdown-divider"></div>
+                     <div class="dropdown-item btn btn-default pull-right">
+                        <a href="{{ route('admin.logout') }}" class="btn btn-default btn-flat">Logout</a>
+                    </div>
+                    
                      </div>
                  </a>
          </li>
@@ -92,7 +86,9 @@
                  <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
              </div>
              <div class="info">
-                 <a href="#" class="d-block">Admin</a>
+                 <a href="#" class="d-block">{{ Auth::guard('admin')->user()->name }}</a>
+                 <a href="#" class="d-block">{{ Auth::guard('admin')->user()->email }}</a>
+
              </div>
          </div>
 

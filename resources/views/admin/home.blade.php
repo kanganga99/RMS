@@ -1,5 +1,6 @@
 @extends('admin.layouts.app')
 
+
 @section('main-content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -7,6 +8,14 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
+            @if(Session::has('error'))
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>{{ session::get('error') }}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @endif
             <h1 class="m-0">Dashboard</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
@@ -93,4 +102,4 @@
     </section>
     <!-- /.content -->
   </div>
-  @endsection
+@endsection
