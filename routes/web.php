@@ -29,13 +29,16 @@ Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->group( function
     Route::get('/register','AdminController@AdminRegister')->name('admin.register');
     Route::post('/register/create','AdminController@AdminRegisterCreate')->name('admin.register.create');
 
+    Route::resource('admin/user','UserController');
+
+
 });
 
 Route::prefix('agent')->namespace('App\Http\Controllers\Agent')->group( function (){
 
 
     Route::get('/login','AgentController@Index')->name('agent_login-form');
-    Route::get('/dashboard','AgentController@AgentDashboard')->name('agent.dashboard');
+    Route::get('/dashboard','AgentController@AgentDashboard')->name('agent.dashboard')->middleware('agent'); 
     Route::post('/login/owner','AgentController@AgentLogin')->name('agent.login');
     Route::get('/logout','AgentController@AgentLogout')->name('agent.logout')->middleware('agent');
     Route::get('/register','AgentController@AgentRegister')->name('agent.register');

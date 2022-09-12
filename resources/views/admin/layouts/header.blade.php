@@ -56,11 +56,11 @@
                      </div>
                      <div class="dropdown-divider"></div>
                      <div class="dropdown-item btn btn-default pull-right">
-                        <a href="{{ route('admin.logout') }}" class="btn btn-default btn-flat">Logout</a>
-                    </div>
-                    
+                         <a href="{{ route('admin.logout') }}" class="btn btn-default btn-flat">Logout</a>
                      </div>
-                 </a>
+
+             </div>
+             </a>
          </li>
 
          </div>
@@ -109,35 +109,35 @@
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                  <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                 <li class="nav-item menu-open">
-                     <a href="#" class="nav-link active">
-                         <i class="nav-icon fas fa-tachometer-alt"></i>
-                         <p>
-                             Users
-                             <i class="right fas fa-angle-left"></i>
-                         </p>
+                 {{-- <li class="nav-item menu-open"> --}}
+
+                 {{-- <ul class="nav nav-treeview"> --}}
+                 <li class="nav-item">
+                     <a href="./index.html" class="nav-link active">
+                         <i class="far fa-circle nav-icon"></i>
+                         <p>Admin</p>
                      </a>
-                     <ul class="nav nav-treeview">
-                         <li class="nav-item">
-                             <a href="./index.html" class="nav-link active">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Admin</p>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="./index2.html" class="nav-link">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Agent</p>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="./index3.html" class="nav-link">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Tenant</p>
-                             </a>
-                         </li>
-                     </ul>
                  </li>
+                 <li class="nav-item">
+                     <a href="./index2.html" class="nav-link">
+                         <i class="far fa-circle nav-icon"></i>
+                         <p>Agent</p>
+                     </a>
+                 </li>
+                 <li class="nav-item">
+                     <a href="./index3.html" class="nav-link">
+                         <i class="far fa-circle nav-icon"></i>
+                         <p>Tenant</p>
+                     </a>
+                 </li>
+                 <li class="nav-item">
+                     <a href="{{ route('user.index') }}" class="nav-link">
+                         <i class="far fa-circle nav-icon"></i>
+                         <p>User</p>
+                     </a>
+                 </li>
+                 {{-- </ul> --}}
+                 {{-- </li> --}}
 
 
              </ul>

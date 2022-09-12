@@ -33,4 +33,31 @@ class AgentController extends Controller
         Auth::guard('agent')->logout();
         return redirect()->route('agent_login-form')->with('error','Agent Logged out Successfully');
     }
+    public function AgentRegister(){
+        return view('agent.agent_register');
+    }
+    public function AgentRegisterCreate(Request $request){
+        // dd($request->all());
+    $input  = request()->except(['_token','_method']);
+    $request->validate([
+        
+ 
+
+            'name' => 'required|max:25',
+            'email' => 'required|between:3,64|email|unique:agents',
+            // 'phone' => 'required|between:10,15|phone',
+
+            'password' => 'required|min:6|max:20|confirmed',
+            'created_at' => Carbon::now(),
+        
+        ]);
+        $input['password'] = bcrypt($input['password']);
+        $input['password_confirmation'] = bcrypt($input['password_confirmation']);
+        Agent::insert($input);
+        return redirect()->route('agent_login-form')->with('success','Agent created Successfully');
+
+
+
+
+    }
 }
