@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 {{-- @extends('layouts.app') --}}
 @extends('user.app')
 
 @section('main-content')
+=======
+@extends('layouts.app')
+
+@section('content')
+>>>>>>> c59e1b22a9cf842f944bd6c5c113b155a80248b5
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

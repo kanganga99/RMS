@@ -23,7 +23,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+<<<<<<< HEAD
                 <div class="card-header">{{ __('Bills') }}</div>
+=======
+                <div class="card-header">{{ __('Dashboard') }}</div>
+>>>>>>> c59e1b22a9cf842f944bd6c5c113b155a80248b5
 
                 <div class="card-body">
                     @if (session('status'))
@@ -31,6 +35,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
+<<<<<<< HEAD
                      {{-- {{ Auth::user()->name }}
                     <br>
                     {{ $msg }} --}}
@@ -41,6 +46,10 @@
     <p>House Rent:</p><br>
                     
 
+=======
+
+                    {{ __('You are logged in!') }}
+>>>>>>> c59e1b22a9cf842f944bd6c5c113b155a80248b5
                 </div>
             </div>
         </div>
