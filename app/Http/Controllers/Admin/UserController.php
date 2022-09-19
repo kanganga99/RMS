@@ -15,9 +15,6 @@ use App\Models\admin\role;
 class UserController extends Controller
 {
 
-    
-
-
     /**
      * Display a listing of the resource.
      *
@@ -106,7 +103,9 @@ class UserController extends Controller
             'phone' => 'required|numeric',
 
         ]);
-        $request->status? : $request['status'] = 3;
+        $request->status? : $request['status']=0;
+
+        // $request->status? : $request['status'] = 3;
         $user = User::where('id',$id)->update($request->except('_token','_method'));
         // User::find($id)->roles()->sync($request->role);
         return redirect(route('user.index'))->with('message','user updated');

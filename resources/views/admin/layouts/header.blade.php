@@ -112,12 +112,12 @@
                  {{-- <li class="nav-item menu-open"> --}}
 
                  {{-- <ul class="nav nav-treeview"> --}}
-                 <li class="nav-item">
+                 {{-- <li class="nav-item">
                      <a href="./index.html" class="nav-link active">
                          <i class="far fa-circle nav-icon"></i>
                          <p>Admin</p>
                      </a>
-                 </li>
+                 </li> --}}
                  <li class="nav-item">
                      <a href="./index2.html" class="nav-link">
                          <i class="far fa-circle nav-icon"></i>
@@ -125,9 +125,9 @@
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="./index3.html" class="nav-link">
+                     <a href="{{ route('post.index') }}" class="nav-link">
                          <i class="far fa-circle nav-icon"></i>
-                         <p>Tenant</p>
+                         <p>Properties</p>
                      </a>
                  </li>
                  <li class="nav-item">

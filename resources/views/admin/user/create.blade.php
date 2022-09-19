@@ -50,7 +50,7 @@
                         <div class="checkbox">
                             <label ><input type="checkbox" name="status" @if (old('status') == 3)
                                checked 
-                            @endif value="1">Status</label>
+                            @endif value="3">Status</label>
                         </div>
                     </div>
                         <div class="form-group">
@@ -60,7 +60,7 @@
                                   <option value="1">Publisher</option>
                                   <option value="3">Writer</option>
                                 </select> --}}
-                            <label>Assign Role</label>
+                            {{-- <label>Assign Role</label> --}}
                             {{-- <div class="row">
                                 @foreach ($roles as $role)
                                 <div class="col-lg-3">

@@ -17,6 +17,10 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/','App\Http\Controllers\User\HomeController@index');
+
+Route::get('post/{post}','App\Http\Controllers\PropertyController@post')->name('post');
+Route::get('post/category/{category}','App\Http\Controllers\user\HomeController@category')->name('category');
 
 // Route::prefix('App\Http\Controllers\Admin')->group( function (){
 Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->group( function (){
@@ -29,7 +33,9 @@ Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->group( function
     Route::get('/register','AdminController@AdminRegister')->name('admin.register');
     Route::post('/register/create','AdminController@AdminRegisterCreate')->name('admin.register.create');
 
-    Route::resource('admin/user','UserController');
+    Route::resource('/user','UserController');
+    Route::resource('/post','PropertyController');
+    Route::resource('/category','LocationController');
 
 
 });
@@ -47,11 +53,11 @@ Route::prefix('agent')->namespace('App\Http\Controllers\Agent')->group( function
 });
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('user/home','App\Http\Controllers\user\HomeController@index');
+// Route::get('user/home','App\Http\Controllers\user\HomeController@index');
 
 // Route::group(['namespace'=> 'App\Http\Controllers\admin'],function(){
 //     Route::get('admin/home','HomeController@index')->name('admin/home');
@@ -63,7 +69,7 @@ Route::get('user/home','App\Http\Controllers\user\HomeController@index');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('web');
 // Route::middleware(['auth','user-role:user'])->group(function()
 // {
     // Route::get("/home",[HomeController::class, 'userHome'])->name('home');

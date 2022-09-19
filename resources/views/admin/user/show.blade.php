@@ -72,7 +72,6 @@
                 <tr>
                   <th>S.Name</th>
                   <th>user Name</th>
-                  <th>Roles Assigned</th>
                   <th>Status</th>
                   <th>Edit</th>
                   <th>Delete</th>
@@ -84,11 +83,11 @@
                 <tr>
                   <td>{{ $loop->index + 1 }}</td>
                   <td>{{ $user->name }}</td>
-                  <td>
+                  {{-- <td> --}}
                     {{-- @foreach($user->roles as $role)
                       {{ $role->name }}
                     @endforeach --}}
-                   </td>
+                   {{-- </td> --}}
                    <td>
                     
                       {{ $user->status? 'active':'inactive' }}
@@ -121,7 +120,6 @@
                 <tr>
                   <th>S.Name</th>
                   <th>user Name</th>
-                  <th>Roles Assigned</th>
                   <th>Status</th>
                   <th>Edit</th>
                   <th>Delete</th>
