@@ -18,27 +18,32 @@
                 </div>
                 <div class="row mb-3">
                     <div class="col">
-                        <label>House Number </label><br>
-                        <input type="text" name="houseno" id="houseno" class="form-control"><br>
+                        <label class="form-label" for="inputhouseno">Houseno</label><br>
+                        <input type="text" name="houseno" id="houseno" class="form-control">
+                        {{-- <select class="form-select" type="houseno" name="houseno">
+                            <option value="">Select houseno</option>
+                            <option name="houseno1">1A</option>
+                            <option name="houseno2">2A</option>
+                        </select> --}}
                     </div>
                     <div class="col">
                         <label>ID Number</label><br>
                         <input type="text" name="idno" id="idno" class="form-control"><br>
                     </div>
                 </div>
-                    <div class="row mb-3">
-                        <div class="col">
-                            <label>Email</label><br>
-                            <input type="text" name="email" id="email" class="form-control"><br>
-                        </div>
-                        <div class="col">
-                            <label>Password</label><br>
-                            <input type="text" name="password" id="password" class="form-control"><br>
-                        </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label>Email</label><br>
+                        <input type="text" name="email" id="email" class="form-control"><br>
                     </div>
-                    <div style="text-align:center;">
-                        <button type="submit" class="btn btn-success center" name="submit">Save</button>
+                    <div class="col">
+                        <label>Password</label><br>
+                        <input type="text" name="password" id="password" class="form-control"><br>
                     </div>
+                </div>
+                <div style="text-align:center;">
+                    <button type="submit" class="btn btn-success center" name="submit">Save</button>
+                </div>
             </form>
         </div>
     </div>

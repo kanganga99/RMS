@@ -3,7 +3,7 @@
     <div class="card">
         <div class="card-header">Contactus Page</div>
         <div class="card-body">
-            <form action="{{ url('tenants/update') }}" method="post">
+            <form action="{{ url('tenants/update/' .$tenants->id) }}" method="post">
                 {!! csrf_field() !!}
                 {{-- @method('PATCH') --}}
                 <input type="hidden" name="id" id="id" value="{{ $tenants->id }}" id="id">

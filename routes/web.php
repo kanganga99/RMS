@@ -30,7 +30,7 @@ Route::post('tenants/store', [TenantController::class, 'store']);
 Route::get('tenants/show/{tenant_id}', [TenantController::class, 'show']);
 
 Route::get('tenants/edit/{tenant_id}', [TenantController::class, 'edit']);
-Route::post('tenants/{tenant_id}', [TenantController::class, 'update']);
+Route::post('tenants/update/{tenant_id}', [TenantController::class, 'update']);
 
 Route::post('tenants/{tenant_id}', [TenantController::class, 'destroy']);
 
@@ -42,9 +42,17 @@ Route::get('vacantrooms/create', [VacantRoomController::class, 'create']);
 Route::post('vacantrooms/store', [VacantRoomController::class, 'store']);
 
 Route::get('vacantrooms/edit/{vacantroom_id}', [VacantRoomController::class, 'edit']);
-Route::patch('vacantrooms/{vacantroom_id}', [VacantRoomController::class, 'update']);
+Route::post('vacantrooms/update/{vacantroom_id}', [VacantRoomController::class, 'update']);
 
 Route::post('vacantrooms/{vacantroom_id}', [VacantRoomController::class, 'destroy']);
 
+Route::get('damagedrooms/', [DamagedRoomController::class, 'index']);
 
-// Route::get('damagedrooms', DamagedRoomController::class, 'index');
+Route::get('damagedrooms/create', [DamagedRoomController::class, 'create']);
+Route::post('damagedrooms/store', [DamagedRoomController::class, 'store']);
+
+Route::get('damagedrooms/edit/{damagedroom_id}', [DamagedRoomController::class, 'edit']);
+Route::post('damagedrooms/update/{damagedroom_id}', [DamagedRoomController::class, 'update']);
+
+Route::post('damagedrooms/{damagedroom_id}', [DamagedRoomController::class, 'destroy']);
+
