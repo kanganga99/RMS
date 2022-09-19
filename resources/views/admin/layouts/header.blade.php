@@ -417,8 +417,10 @@
               </li>
               <li class="nav-item">
                 <a href="" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Rooms</p>
+                  <i class="nav-icon fas fa-table"></i>
+                  <p>Rooms
+                <i class="fas fa-angle-left right"></i>
+                  </p>
                 </a>
                 <ul class="nav nav-treeview">
                     <li>

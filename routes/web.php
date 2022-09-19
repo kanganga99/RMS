@@ -24,16 +24,27 @@ Route::get('admin/home', [App\Http\Controllers\Admin\HomeController::class, 'ind
 
 Route::resource('tenants/', TenantController::class);
 
-Route::post('tenants/create', [TenantController::class, 'create']);
+Route::get('tenants/create', [TenantController::class, 'create']);
+Route::post('tenants/store', [TenantController::class, 'store']);
 
-Route::get('tenants/show', [TenantController::class, 'show']);
+Route::get('tenants/show/{tenant_id}', [TenantController::class, 'show']);
 
-Route::post('tenants/edit{tenant_id}', [TenantController::class, 'edit']);
+Route::get('tenants/edit/{tenant_id}', [TenantController::class, 'edit']);
+Route::post('tenants/{tenant_id}', [TenantController::class, 'update']);
+
+Route::post('tenants/{tenant_id}', [TenantController::class, 'destroy']);
+
+
 
 Route::get('vacantrooms/', [VacantRoomController::class, 'index']);
 
 Route::get('vacantrooms/create', [VacantRoomController::class, 'create']);
+Route::post('vacantrooms/store', [VacantRoomController::class, 'store']);
 
-Route::get('vacantrooms/edit{vantroom_id}', [VacantRoomController::class, 'edit']);
+Route::get('vacantrooms/edit/{vacantroom_id}', [VacantRoomController::class, 'edit']);
+Route::patch('vacantrooms/{vacantroom_id}', [VacantRoomController::class, 'update']);
+
+Route::post('vacantrooms/{vacantroom_id}', [VacantRoomController::class, 'destroy']);
+
 
 // Route::get('damagedrooms', DamagedRoomController::class, 'index');

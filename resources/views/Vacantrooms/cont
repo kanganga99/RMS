@@ -23,10 +23,10 @@ class VacantRoomController extends Controller
         return redirect('vacantrooms')->with('flash_message', 'Vacant Room Added successfully!');
     }
 
-    public function show($id)
-    {
-        //
-    }
+    // public function show($id)
+    // {
+
+    // }
 
     public function edit($id)
     {

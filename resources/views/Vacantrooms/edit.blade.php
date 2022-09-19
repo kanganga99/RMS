@@ -3,9 +3,9 @@
     <div class="card">
         <div class="card-header">Contactus Page</div>
         <div class="card-body">
-            <form action="{{ url('vacantrooms' . $tenants->id) }}" method="post">
+            <form action="{{ url('vacantrooms/update') }}" method="post">
                 {!! csrf_field() !!}
-                @method('PATCH')
+                {{-- @method('PATCH') --}}
                 <input type="hidden" name="id" id="id" value="{{ $vacantrooms->id }}" id="id">
                 <label>House Number</label>
                 <input type="text" name="houseno" id="houseno" value="{{ $vacantrooms->houseno }}" class="form-control"><br>

@@ -38,4 +38,29 @@
                 <button class="btn btn-success btn-sm">Pay Now</button></a>
             </div>
 
+            {{-- <div class="card">
+                <div class="card-body">
+                    <table id="example" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Invoices</th>
+                                <th>Due date</th>
+                                <th>Pre Payment</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($tenants as $item)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $item->name }}</td>
+                                <td>{{ $item->invoices }}</td>
+                                <td>{{ $item->duepayment }}</td>
+                                <td>{{ $item->prepayment }}</td>
+                                <td>
+                    </table>
+                </div>
+            </div> --}}
         </div>

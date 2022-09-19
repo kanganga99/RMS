@@ -36,4 +36,10 @@ class VacantRoomController extends Controller
         $vacantroom->update($input);
         return redirect('vacantrooms')->with('flash message', 'vacant room Updated!');
     }
+    public function destroy($id)
+    {
+        VacantRoom::destroy($id);
+        return redirect('vacantrooms')->with('flash message', 'Vacant Room deleted');
+    }
 }
+

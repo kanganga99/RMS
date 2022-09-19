@@ -8,7 +8,7 @@ class TenantController extends Controller
     public function index()
     {
         $tenants = Tenant::all();
-        return view ('tenants.index')->with('tenants',$tenants);
+        return view('tenants.index')->with('tenants',$tenants);
     }
 
     public function create()
@@ -20,7 +20,7 @@ class TenantController extends Controller
     {
         $input = $request->all();
         Tenant::create($input);
-        return redirect('tenants')->with('flash_message', 'Tenant Added successfully!');
+        return redirect('tenants')->with('success', 'flash message success!');
     }
 
     public function show($id)
