@@ -34,8 +34,6 @@ Route::post('tenants/update/{tenant_id}', [TenantController::class, 'update']);
 
 Route::post('tenants/{tenant_id}', [TenantController::class, 'destroy']);
 
-
-
 Route::get('vacantrooms/', [VacantRoomController::class, 'index']);
 
 Route::get('vacantrooms/create', [VacantRoomController::class, 'create']);
@@ -55,4 +53,3 @@ Route::get('damagedrooms/edit/{damagedroom_id}', [DamagedRoomController::class, 
 Route::post('damagedrooms/update/{damagedroom_id}', [DamagedRoomController::class, 'update']);
 
 Route::post('damagedrooms/{damagedroom_id}', [DamagedRoomController::class, 'destroy']);
-
