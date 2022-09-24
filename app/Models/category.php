@@ -19,7 +19,7 @@ class category extends Model
 
     public function users()
     {
-        return $this->belongsToMany('App\Models\User','category_users','user_id');
+        return $this->belongsToMany('App\Models\User','category_users');
     }
 
     public function agents()
