@@ -46,6 +46,9 @@ class LoginController extends Controller
             if ($request->hasSession()) {
                 $request->session()->put('auth.password_confirmed_at', time());
             }
+             // Session::get('email', $user->category);
+          
+            // dd($id);
 
             return $this->sendLoginResponse($request);
         }
@@ -71,7 +74,7 @@ class LoginController extends Controller
         // ->withCount('categories')
         // ->get();
         
-        $user = User::where('email', $request->email)->first();
+       
         // User::find($id)->categories()->sync($request->category);
 
         // $user2 = User::join('users', 'users.id', '=', 'categories.id')
@@ -87,7 +90,7 @@ class LoginController extends Controller
 
         // $user2 = User::where('email',$request->email)->first()->category_id;
         // $user2 = category::where('id',$request->get(array('id')))->first();
-
+        $user = User::where('email', $request->email)->first();
         if (count((array)$user)) {
 
             if ($user->status == 1) {
@@ -106,22 +109,22 @@ class LoginController extends Controller
 
                 // Session::put('category_id', $variable);
                 // Session::get('email', $user->category);
-
+                // $request->authenticate();
+                // $data = $request->input();
                 return ['email' => $request->email, 'password' => $request->password, 'status' => 3];
+             
+
             }
-            // if (Auth::attempt(['email' => $email, 'password' => $password, 'category_id' => '2'])) {
-            //     $user = Auth::User();
-            //     Session::put('name', $user->name);
-            // }
+        
         }
         // if(session()->has('category_id')){
         //     // session()->get('category_id');
         //     echo $request->session()->get('category_id');
         // }
-       $var= $user->categories()->sync($request->categories)->category_id;
+    //    $var= $user->categories()->sync($request->categories)->category_id;
 
-                 Session::put('email', $var);
-
+    //              Session::put('email', $var);
+   
         return $request->only($this->username(), 'password');
     }
 

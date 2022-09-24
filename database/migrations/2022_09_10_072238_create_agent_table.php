@@ -24,6 +24,7 @@ return new class extends Migration
             // $table->rememberToken();
             $table->string('password_confirmation')->nullable();
             $table->tinyInteger('status')->default(1);
+            $table->string('post_id')->default('0');
             $table->timestamps();
         });
     }

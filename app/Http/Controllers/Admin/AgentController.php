@@ -27,7 +27,8 @@ class AgentController extends Controller
      */
     public function index()
     {
-        $agents = Agent::all(); 
+        // $agents = Agent::all();
+        $agents = Agent::where('post_id', session('post_id')); 
         return  view('admin.agent.show',compact('agents'));
     }
 
@@ -63,9 +64,11 @@ class AgentController extends Controller
             'phone' => 'required|numeric',
 
         ]);
+        
 
         $request['password'] = bcrypt($request->password);
         $agent = new agent;
+        $agent->post_id=$request->session()->get('post_id');
 
         $agent =Agent::create($request->all());
         $agent->save(); 

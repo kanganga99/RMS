@@ -58,9 +58,9 @@ class User extends Authenticatable
     {
         return 'slug';
     }
-    // public function categories()
+    // public function posts()
     // {
-    //     return $this->belongsTo(category::class,'category_id')->withTimestamps();
+    //     return $this->hasMany(post::class,'post_id')->withTimestamps();
     // }  
  
 }

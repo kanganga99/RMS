@@ -39,7 +39,7 @@
                     {{-- } --}}
                     {{-- @endif --}}
                     {{-- xxx {{ Session::get( $category->category_id) }} <br> --}}
-                   session <h1>{{ Session::get('category_id') }}</h1>
+                   session <h1>{{ Session::get('post_id')}}</h1>
                    {{-- session <h1>{{ Session::get(is_array($variable)&& array_key_exists('category_id', $variable)) }}</h1> --}}
 
                   

@@ -11,6 +11,10 @@ class post extends Model
     {
         return $this->belongsToMany('App\Models\category','category_posts')->withTimestamps();
     }
+    public function admins()
+    {
+        return $this->belongsToMany('App\Models\admin','post_id')->withTimestamps();
+    }
 
     public function getRouteKeyName()
     {
