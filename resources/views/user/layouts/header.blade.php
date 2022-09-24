@@ -13,9 +13,9 @@
     <div class="container">
         <div class="row align-items-center">
 
-            <div class="col-6 col-xl-2">
+          <div class="col-6 col-xl-2">
                 <h1 class="mb-0 site-logo m-0 p-0"><a href="{{ url('/') }}" class="mb-0">P m S</a></h1>
-            </div>
+            </div> 
 
             <div class="col-12 col-md-10 d-none d-xl-block">
                 <nav class="site-navigation position-relative text-right" role="navigation">

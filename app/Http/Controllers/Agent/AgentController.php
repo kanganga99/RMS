@@ -24,7 +24,7 @@ class AgentController extends Controller
         // dd($request->all());
         $check = $request->all();
         if(Auth::guard('agent')->attempt(['email'=> $check['email'] , 'password'=> $check['password']  ])){
-            return redirect()->route('agent.dashboard')->with('error','Agent Logged in Successfully');
+            return redirect()->route('agent.dashboard')->with('success','Agent Logged in Successfully');
         }else{
             return back()->with('error','you have inserted invalid credentials try again please');
         }

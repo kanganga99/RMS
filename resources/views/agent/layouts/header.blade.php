@@ -110,21 +110,30 @@
                  <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                  <li class="nav-item menu-open">
-                 
-                    
-                     
                          <li class="nav-item">
-                             <a href="./index2.html" class="nav-link">
+                             <a href="{{ url('agent/tenants') }}" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
-                                 <p>Agent</p>
+                                 <p>Tenants</p>
                              </a>
                          </li>
                          <li class="nav-item">
-                             <a href="./index3.html" class="nav-link">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Tenant</p>
-                             </a>
-                         </li>
+                            <a href="{{ url('agent/vacantrooms') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Vacant Rooms</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('agent/damagedrooms') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Damaged Rooms</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('agent/tenants/transactions') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Transactions</p>
+                            </a>
+                        </li>
                 
                  </li>
 
