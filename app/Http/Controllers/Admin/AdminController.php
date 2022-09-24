@@ -40,7 +40,7 @@ class AdminController extends Controller
 
     public function AdminLogout(){
         Auth::guard('admin')->logout();
-        return redirect()->route('login-form')->with('error','Admin Logged out Successfully');
+        return redirect()->route('admin.login')->with('error','Admin Logged out Successfully');
     }
 
     public function AdminRegister(){
@@ -87,9 +87,7 @@ class AdminController extends Controller
 
         // 'email' => 'required|email|max:15|unique',
         'email' => 'required|between:3,64|email|unique:admins',
-
         'password' => 'required|min:6|max:20|confirmed',
-        
         'created_at' => Carbon::now(),
 
     ]);
@@ -99,6 +97,6 @@ class AdminController extends Controller
 
     Admin::insert($input);
 
-    return redirect()->route('login-form')->with('success', 'Admin created Successfully');
+    return redirect()->route('admin.login')->with('success', 'Admin created Successfully');
 }
 }

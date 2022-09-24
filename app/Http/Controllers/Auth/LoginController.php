@@ -6,21 +6,18 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\category_user;
+use App\Models\category;
 
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
+   
     use AuthenticatesUsers;
 
     /**
@@ -28,37 +25,115 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
+
+    // public function showLoginForm()
+    // {
+    //     return view('user.login');
+    // }
+
+    public function login(Request $request)
+    {
+        $this->validateLogin($request);
+
+        if ($this->attemptLogin($request)) {
+            if ($request->hasSession()) {
+                $request->session()->put('auth.password_confirmed_at', time());
+            }
+
+            return $this->sendLoginResponse($request);
+        }
+        return $this->sendFailedLoginResponse($request);
+    }
+
+    protected function credentials(Request $request)
+    {
+        //     $user2 = 
+        //     DB::table('users')->where('users.id','all')
+        //   ->join('categories', 'categories.id', '=', 'users.id')->get(['categories.name','users.name',]);
+
+        // $user2 = Category::whereNull('category_id')
+        // ->whereHas('users', function ($query) {
+        //     $query->where('id', auth()->user()->id);
+        // })
+        // ->with([
+        //     'categories', 
+        //     'users' => function ($query) {
+        //         $query->where('id', auth()->user()->id);
+        //     }
+        // ])
+        // ->withCount('categories')
+        // ->get();
+        
+        $user = User::where('email', $request->email)->first();
+        // User::find($id)->categories()->sync($request->category);
+
+        // $user2 = User::join('users', 'users.id', '=', 'categories.id')
+        //     ->join('category_users', 'category_users.user_id', '=', 'users.id')
+        //     ->get(['categories.name', 'users.name',]);
+
+        // $user2 = User::join('users','users.id','=','category_users.user_id')
+        // ->join('category_users', 'category_users.user_id', '=', 'users.id')
+        // ->get(['users.id']);
+
+
+        // $user2 = User::where('email',$request->categories)->first()->category_id;
+
+        // $user2 = User::where('email',$request->email)->first()->category_id;
+        // $user2 = category::where('id',$request->get(array('id')))->first();
+
+        if (count((array)$user)) {
+
+            if ($user->status == 1) {
+
+                return ['email' => 'inactive', 'password' => 'you are not activated please contact admin'];
+            } else {
+                // $req->session()->put('email',$data['category_id']);
+                // Session::has('email', $user2);
+                //  Session::put('email', $user);
+                // Session::put('post', $user->post);
+
+                
+                // $user = $request->user(); 
+                // $id = $request->user()->id; .
+           
+
+                // Session::put('category_id', $variable);
+                // Session::get('email', $user->category);
+
+                return ['email' => $request->email, 'password' => $request->password, 'status' => 3];
+            }
+            // if (Auth::attempt(['email' => $email, 'password' => $password, 'category_id' => '2'])) {
+            //     $user = Auth::User();
+            //     Session::put('name', $user->name);
+            // }
+        }
+        // if(session()->has('category_id')){
+        //     // session()->get('category_id');
+        //     echo $request->session()->get('category_id');
+        // }
+       $var= $user->categories()->sync($request->categories)->category_id;
+
+                 Session::put('email', $var);
+
+        return $request->only($this->username(), 'password');
+    }
+
+
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest:web')->except('logout');
     }
-    // public function login(Request $request)
-    // {
-    //     $input = $request->all();
-    //     $this->validate($request,[
-    //         'email' => 'required|email',
-    //         'password' => 'required'
-    //     ]);
-    //     if(auth()->attempt(['email'=>$input["email"], 'password'=>$input['password']])){
-    //         if(auth()->user()->role == 'admin'){
-    //             return redirect()->route('home.admin');
-    //         }
-    //         else if(auth()->user()->role == 'agent'){
-    //             return redirect()->route('home.agent');
-    //         }
-    //        else{
-    //             return redirect()->route('home');
-    //         }
-    //     }
-    //     else{
-    //         return redirect()->route('login')->with("error",'incorrect credentials');
-    //     }
-    // }
+
+
+    protected function guard()
+    {
+        return Auth::guard('web');
+    }
 }

@@ -1,7 +1,10 @@
-@extends('tenants.layout')
-@section('content')
+@extends('admin.layouts.app')
+
+@section('main-content')
+<div class="content-wrapper">
+    <section class="content">
     <div class="card">
-        <div class="card-header">Contactus Page</div>
+        <div class="card-header">Contact us Page</div>
         <div class="card-body">
             <form action="{{ url('tenants/update') }}" method="post">
                 {!! csrf_field() !!}
@@ -29,4 +32,6 @@
             </form>
         </div>
     </div>
+    </section>
+</div>
 @stop

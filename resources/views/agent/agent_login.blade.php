@@ -19,6 +19,13 @@
         <div class="login-logo">
             <a href=""><b>Agent</b>Login</a>
         </div>
+    
+
+        @if (session('status'))
+        <div class="alert alert-success" role="alert">
+            {{ session('status') }}
+        </div>
+       @endif
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
@@ -31,8 +38,9 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+          
                 @endif
-                
+            
                 <form action="{{ route('agent.login') }}" method="post">
                     {{ csrf_field() }}
                     <div class="input-group mb-3">
@@ -68,11 +76,11 @@
                     </div>
                 </form>
 
-        <div class="social-auth-links text-center mb-3">
+        {{-- <div class="social-auth-links text-center mb-3">
         <p>- OR -</p>
         <a href="{{ route('agent.register') }}" class="btn btn-block btn-info ">
            Register
-        </a>
+        </a> --}}
         {{-- <a href="#" class="btn btn-block  btn-danger">
           <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
         </a> --}}

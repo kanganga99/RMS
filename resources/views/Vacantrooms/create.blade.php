@@ -1,5 +1,7 @@
-@extends('tenants.layout')
-@section('content')
+{{-- @extends('tenants.layout') --}}
+@extends('admin.layouts.app')
+
+@section('main-content')
     {{-- <div class="card center" >
         <div class="card-header">Vacant rooms Page</div>
         <div class="card-body">
@@ -23,7 +25,8 @@
             </form>
         </div>
     </div> --}}
-
+    <div class="content-wrapper">
+        <section class="content">
     <div class="modal fade" id="modal-default">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -62,4 +65,6 @@
         </div>
         <!-- /.modal-dialog -->
       </div>
+        </section>
+    </div>
 @stop

@@ -30,7 +30,8 @@
       <div class="col-12">
        
         <!-- /.card -->
-
+        <div class="content-wrapper">
+          <section class="content">
         <div class="card">
           <div class="card-header">
             <a href="{{ url('vacantrooms/create') }}" class="btn btn-success btn-sm" title="Add Vacant Room"  data-toggle="modal" data-target="#modal-default">
@@ -40,7 +41,7 @@
             Launch Default Modal
           </button>          --}}
         </div>
-
+       
         
           <!-- /.card-header -->
           <div class="card-body">
@@ -73,6 +74,8 @@
                 </tbody>
             </table>
           </div>
+          </section>
+        </div>
         </div>
       </div>
     </div>

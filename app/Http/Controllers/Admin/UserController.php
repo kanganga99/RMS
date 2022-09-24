@@ -5,16 +5,25 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\category;
+
 
 use App\Models\admin\role;
-// use App\Models\user\User;
 
 
 
 
 class UserController extends Controller
 {
-
+          /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }    
     /**
      * Display a listing of the resource.
      *
@@ -22,6 +31,15 @@ class UserController extends Controller
      */
     public function index()
     {
+        // $users = 
+        // DB::table('users')->where('users.id','all')
+        // ->join('categories', 'categories.id', '=', 'users.id');
+    
+        // $users = DB::table('users')
+        // ->select('username')
+        // ->join('categories', 'categories.category_id', '=', 'users.id')
+        // ->where('countries.country_name', $country)
+        // ->get();  
         $users = User::all(); 
         return  view('admin.user.show',compact('users'));
     }
@@ -33,9 +51,11 @@ class UserController extends Controller
      */
     public function create()
     {
+        $categories = category::all();
+
         // $roles = role::all(); return $roles;
         // $roles = role::all();
-       return view('admin.user.create');
+       return view('admin.user.create', compact('categories'));
     //    ,compact('roles'));
     }
 
@@ -54,10 +74,19 @@ class UserController extends Controller
             'phone' => 'required|numeric',
 
         ]);
-        $request['password'] = bcrypt($request->password);
-        $user =User::create($request->all());
-        // $user->roles()->sync($request->role);
 
+        $request['password'] = bcrypt($request->password);
+        $user = new user;
+
+        $user =User::create($request->all());
+        $user->save(); 
+
+        // $user->roles()->sync($request->role);
+        $user ->categories()->sync($request->categories);
+        //  if (Auth::attempt(['email' => $email, 'password' => $password, 'category_id' => '2'])) {
+        //         $user = Auth::User();
+        //         Session::put('name', $user->name);
+        //     }
         return redirect(route('user.index'));
         // return $request->all();
     }
@@ -82,10 +111,16 @@ class UserController extends Controller
     public function edit($id)
     {
         $user=User::find($id);
+        // $user = User::with ('categories')->where('id',$id)->first();
+        // $category = category::find($category_id);
+
         // $roles = role::all();
-        return view('admin.user.edit',compact('user'));
+        $categories = category::all();
+
+        return view('admin.user.edit',compact('categories','user'));
         // ,'roles'));
     }
+  
 
     /**
      * Update the specified resource in storage.
@@ -103,11 +138,33 @@ class UserController extends Controller
             'phone' => 'required|numeric',
 
         ]);
-        $request->status? : $request['status']=0;
 
+        // $user = user::find($id);
+
+        // $request->status? : $request['status']=0;
+        // $user=User::find($id);
         // $request->status? : $request['status'] = 3;
-        $user = User::where('id',$id)->update($request->except('_token','_method'));
+        // $user = User::with ('category_id')->update($request->except('_token','_method'));
+
+        // $user = User::where('id',$id)->update($request->except('_token','_method'));
+        // $user->status = $request->status;
+        // $user = user::find($id);
+        // $user->category_id = $data['category_id'];
+        // $request->categories;
         // User::find($id)->roles()->sync($request->role);
+
+
+        // $user->categories()->sync($request->categories);
+        // $user->update();
+
+        // return redirect(route('user.index'))->with('message','user updated');
+
+
+
+        $request->status? : $request['status']=0;
+        $user = user::where('id',$id)->update($request->except('_token','_method','category'));
+        // $user->categories()->sync($request->categories);
+        User::find($id)->categories()->sync($request->category);
         return redirect(route('user.index'))->with('message','user updated');
 
     }
@@ -120,6 +177,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+        
         User::where('id',$id)->delete();
         return redirect()->back()->with('message','user deleted successfully');
     }

@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 
 class PropertyController extends Controller
 {
+     
     /**
      * Display a listing of the resource.
      *
@@ -51,33 +52,7 @@ class PropertyController extends Controller
              'body'=>'required',
              'image'=>'required',
 
-         ]);
-        //  $image =array();
-        //  if($request->hasFile('image')) {
-        //     $files = $request->file('image');
-        //     foreach ($files as $file) {
-        //         $image_name = md5(rand(1000, 10000));
-        //         $ext = strtolower($file->getClientOriginalExtension());
-        //         $image_full_name = $image_name. '.' .$ext;
-        //         $upload_path = 'public/images';
-        //         $image_url = $upload_path.$image_full_name;
-        //         $file->move($upload_path, $image_full_name);
-        //         $image[] = $image_url;
-                // $filename = $file->getClientOriginalName();
-                // $extension = $file->getClientOriginalExtension();
-                // $upload_path = 'public/storage';
-                // Storage::disk('local')->put($filename,  File::get($file));
-                // $image[] = $filename; // Store all Images into array
-                // $getAllImages = collect($image)->implode(',');
-        //     }
-        // }
-
-        //  if ($request->hasFile('image')) {
-        //     $imageName = $request->image->store('public');
-        //  }
-
-    
-         
+         ]);         
          $post = new post;
          $post->title = $request->title;
         //  $post->image =implode ('|',$image);

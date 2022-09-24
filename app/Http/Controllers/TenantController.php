@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Tenant;
+use App\Models\category;
 
 class TenantController extends Controller
 {
@@ -13,13 +14,20 @@ class TenantController extends Controller
 
     public function create()
     {
-        return view('tenants.create');
+        $categories = category::all();
+        return view('tenants.create', compact('categories'));
     }
 
     public function store(Request $request)
     {
+        $tenant = new Tenant;
         $input = $request->all();
         Tenant::create($input);
+        
+        $tenant->save(); 
+
+        $tenant ->categories()->sync($request->categories);
+
         return redirect('tenants')->with('success', 'flash message success!');
     }
 
@@ -31,8 +39,12 @@ class TenantController extends Controller
 
     public function edit($id)
     {
-        $tenant = Tenant::find($id);
-        return view('tenants.edit')->with('tenants', $tenant);
+        $tenant = Tenant::with ('categories')->where('id',$id)->first();
+
+        // $tenant = Tenant::find($id);
+        $categories = category::all();
+
+        return view('tenants.edit',compact('categories','tenant'));
     }
 
     public function update(Request $request, $id)
@@ -40,6 +52,9 @@ class TenantController extends Controller
         $tenant = Tenant::find($id);
         $input = $request->all();
         $tenant->update($input);
+        $tenant ->categories()->sync($request->categories);
+        $tenant->save();
+
         return redirect('tenants')->with('flash message', 'tenant Updated!');
     }
 

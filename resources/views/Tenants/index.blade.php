@@ -23,6 +23,8 @@
       {{-- <div class="col-12"> --}}
        
         <!-- /.card -->
+        <div class="content-wrapper">
+          <section class="content">
 
         <div class="card">
           <div class="card-header">
@@ -77,5 +79,6 @@
       {{-- </div> --}}
     {{-- </div> --}}
   {{-- </div> --}}
-{{-- </section> --}}
+</section>
+</div>
 @endsection

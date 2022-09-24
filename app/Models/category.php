@@ -11,8 +11,20 @@ class category extends Model
     {
         return $this->belongsToMany('App\Models\post','category_posts')->orderBy('created_at','DESC')->paginate(2);
     }
+       
     public function getRouteKeyName()
     {
         return 'slug';
     }
+
+    public function users()
+    {
+        return $this->belongsToMany('App\Models\User','category_users','user_id');
+    }
+
+    public function agents()
+    {
+        return $this->belongsToMany('App\Models\Agent','category_agents');
+    }
+    
 }

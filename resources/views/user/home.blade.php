@@ -38,15 +38,17 @@
                             </div>
 
                         </div>
+
                     </div>
                 </div>
             
 
 @endforeach
+
   <!-- Divider-->
   {{-- <hr class="my-4" /> --}}
   <!-- Pager-->
-  
+
 </div>
 {{  $posts->links() }}
 

@@ -18,15 +18,45 @@ class RedirectIfAuthenticated
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
     public function handle(Request $request, Closure $next, ...$guards)
+    // {
+    //     $guards = empty($guards) ? [null] : $guards;
+
+    //     foreach ($guards as $guard) {
+    //         if (Auth::guard($guard)->check()) {
+    //             return redirect(RouteServiceProvider::HOME);
+    //         }
+    //     }
+
+    //     return $next($request);
+    // }
+
+
+
     {
         $guards = empty($guards) ? [null] : $guards;
 
         foreach ($guards as $guard) {
-            if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+
+            switch ($guard) {
+                case 'admin':
+                    if (Auth::guard($guard)->check()) {
+                        return redirect('admin/dashboard');
+                    }
+                    break;
+                case 'agent':
+                    if (Auth::guard($guard)->check()) {
+                        return redirect('agent/dashboard');
+                    }
+                    break;
+
+                default:
+
+                    if (Auth::guard($guard)->check()) {
+                        return redirect('/home');
+                    }
+                    break;
             }
         }
-
         return $next($request);
     }
 }

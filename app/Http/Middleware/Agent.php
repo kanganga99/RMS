@@ -19,7 +19,7 @@ class Agent
     public function handle(Request $request, Closure $next)
     {
         if(!Auth::guard('agent')->check()){
-            return redirect()->route('agent_login-form')->with('error','please login first');
+            return redirect()->route('agent.login')->with('error','please login first');
         }
         return $next($request);
     }
