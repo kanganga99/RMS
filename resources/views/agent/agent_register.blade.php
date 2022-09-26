@@ -37,7 +37,7 @@
 
   @if ($message = Session::get('success'))
       <div class="alert alert-success alert-block">
-          <button type="button" class="close" data-dismiss="alert">×</button>
+          <button type="button" class="close" data-dismiss="alert"></button>
           <strong>{{ $message }}</strong>
       </div>
   @endif
@@ -45,7 +45,6 @@
         {{ csrf_field() }}
          
 
-        {{-- @csrf --}}
         <div class="input-group mb-3">
           <input type="text" class="form-control" name="name" placeholder="Full name" value="{{ old('name') }}" required>
           <div class="input-group-append">
@@ -89,11 +88,9 @@
         <div class="row">
           <div class="col-8">
           </div>
-          <!-- /.col -->
           <div class="col-4">
             <button type="submit" class="btn btn-primary btn-block">Register</button>
           </div>
-          <!-- /.col -->
         </div>
       </form>
 
@@ -102,22 +99,10 @@
         <a href="{{ url('agent/login') }}" class="btn btn-block btn-info">
           Login
       </a>
-        
-        {{-- <a href="#" class="btn btn-block btn-danger">
-          <i class="fab fa-google-plus mr-2"></i>
-          Sign up using Google+
-        </a>
-      </div>
-
-      <a href="login.html" class="text-center">I already have a membership</a> --}}
     </div>
-    <!-- /.form-box -->
   </div><!-- /.card -->
 </div>
-<!-- /.register-box -->
-<!-- jQuery -->
 <script src="{{ asset('admin/plugins/jquery/jquery.min.js') }}"></script>
-<!-- Bootstrap 4 -->
 <script src="{{ asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 </body>
 </html>

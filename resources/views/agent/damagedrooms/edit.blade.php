@@ -18,8 +18,8 @@
                         <label>Description</label>
                         <input type="text" name="description" id="description" value="{{ $damagedrooms->description }}"
                             class="form-control"><br>
-                            <textarea name="description" id="description" cols="" rows="10"></textarea>
-                        {{-- <label>Description</label><br>
+                            {{-- <textarea name="description" id="description" cols="" rows="10"></textarea>
+                        <label>Description</label><br>
                             <textarea id="description" name="description" rows="4" cols="50" value="{{ $damagedrooms->description }}" class="form-control">
                             </textarea><br> --}}
                         <button type="submit" class="btn btn-success" id="mybutton">Update</button>
