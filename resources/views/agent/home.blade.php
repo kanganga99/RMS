@@ -8,20 +8,20 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    @if(Session::has('error'))
+                    {{-- @if(Session::has('error'))
                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
                         <strong>{{ session::get('error') }}</strong>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    @endif
+                    @endif --}}
                     <h1 class="m-0">Dashboard</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Admin Dashboard</li>
+                        <li class="breadcrumb-item active">A Dashboard</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -71,7 +71,7 @@
                         <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-           {{-- {{ Session::get('name') }} --}}
+           {{ Session::get('post_id') }}
          
                 {{-- names{{ session('category_id') }} --}}
 
@@ -81,11 +81,8 @@
 
                 @endforeach --}}
 
-                <p>ggggggggggg</p>
-                @foreach ($users as $user )
-                <p>{{ $user->name }}</p>
+                {{-- session <h1>{{ Session::get('post_id')}}</h1> --}}
 
-                @endforeach
                 <!-- ./col -->
                 {{-- <div class="col-lg-3 col-6">
             <!-- small box -->

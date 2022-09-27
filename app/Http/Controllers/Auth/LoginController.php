@@ -10,7 +10,6 @@ use App\Models\User;
 use App\Models\category_user;
 use App\Models\category;
 
-
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
@@ -47,6 +46,9 @@ class LoginController extends Controller
                 $request->session()->put('auth.password_confirmed_at', time());
             }
              // Session::get('email', $user->category);
+            //  $data = $request->input();
+            //  $id = DB::table('agents')->where('email', $data['email'])->first()->post_id;
+            //  session(['post_id' => $id]);
           
             // dd($id);
 

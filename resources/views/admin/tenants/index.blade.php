@@ -14,21 +14,14 @@
        "autoWidth": false
 } );
 </script>
-
 @endsection
 @section('main-content')
-{{-- <section class="content"> --}}
-  {{-- <div class="container-fluid"> --}}
-    {{-- <div class="row"> --}}
-      {{-- <div class="col-12"> --}}
-       
-        <!-- /.card -->
         <div class="content-wrapper">
-          <section class="content">
-
+          <section class="content-header">
+        
         <div class="card">
           <div class="card-header">
-            <a href="{{ url('/tenants/create') }}" class="btn btn-success btn-sm" title="Add New Tenant">
+            <a href="{{ url('admin/tenants/create') }}" class="btn btn-success btn-sm" title="Add New Tenant">
               <i class="fa fa-plus" aria-hidden="true"></i> Add New
           </a>          
           </div>
@@ -58,8 +51,8 @@
                         <td>{{ $item->email }}</td>
                         <td>{{ $item->password }}</td>
                         <td>
-                            <a href="{{ url('tenants/show/' . $item->id )}}" title="View tenant"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                            <a href="{{ url('tenants/edit/' . $item->id )}}" title="Edit tenant"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                            <a href="{{ url('admin/tenants/show/' . $item->id )}}" title="View tenant"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                            <a href="{{ url('admin/tenants/edit/' . $item->id )}}" title="Edit tenant"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                             <form method="POST" action="{{ url('/tenants' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                 {{-- {{ method_field('PATCH') }}
                                 {{ csrf_field() }} --}}
@@ -75,6 +68,8 @@
                 </tbody>
             </table>
           </div>
+        </div>
+          </section>
         </div>
       {{-- </div> --}}
     {{-- </div> --}}

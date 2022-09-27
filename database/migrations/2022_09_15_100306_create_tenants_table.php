@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('idno')->unique();
             $table->string('phoneno')->unique();
             $table->string('houseno')->unique();
+            $table->string('post_id')->default('0');
+            $table->string('agent_id')->default('0');
+
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

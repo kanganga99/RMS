@@ -59,7 +59,7 @@ class Agent extends  Authenticatable
 
     public function posts()
     {
-        return $this->hasMany(post::class,'post_id')->withTimestamps();
+        return $this->belongsToMany(post::class,'posts')->withTimestamps();
     } 
      
 }

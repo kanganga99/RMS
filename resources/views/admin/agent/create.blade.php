@@ -67,6 +67,8 @@
                             </div>
                             <div class="row">
                                 {{-- @foreach ($roles as $role) --}}
+                                <label>select location</label>
+                                
                                 @foreach ($categories as $category )
 
                                 <div class="col-lg-3">
@@ -79,14 +81,28 @@
                                 @endforeach
 
                             </div>
-                            {{-- <div class="form-group" data-select2-id="51">
-                                <label>Select Location</label>
-                                <select class="select2 select2-hidden-accessible" multiple="" data-placeholder="Select a State" style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true" name="categories[]">
-                                    @foreach ($categories as $category )
-                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            {{-- <div class="row"> --}}
+                                {{-- @foreach ($roles as $role) --}}
+                                {{-- @foreach ($posts as $post )
+
+                                <div class="col-lg-3">
+                                    <div class="checkbox">
+                                        <label for=""><input type="checkbox" name="post[]" value="{{ $post->id }}">{{ $post->name }}</label>
+                                    </div>
+
+                                </div>
+
+                                @endforeach --}}
+
+                            {{-- </div> --}}
+                            <div class="form-group" data-select2-id="51">
+                                <label>Select property</label>
+                                <select class="select2 select2-hidden-accessible" multiple="" data-placeholder="Select a property" style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true" name="posts[]">
+                                    @foreach ($posts as $post )
+                                    <option value="{{ $post->id }}">{{ $post->title }}</option>
                                     @endforeach
                                 </select>
-                            </div> --}}
+                            </div>
                         </div>
                     </div>
 

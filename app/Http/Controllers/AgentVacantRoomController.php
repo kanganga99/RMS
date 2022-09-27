@@ -4,29 +4,30 @@ use Illuminate\Http\Request;
 use App\Models\VacantRoom;
 
 
-class VacantRoomController extends Controller
+class AgentVacantRoomController extends Controller
 {
     public function index()
     {
         $vacantrooms = VacantRoom::all();
-        return view('vacantrooms.index')->with('vacantrooms', $vacantrooms);
+        return view('agent.vacantrooms.index')->with('vacantrooms', $vacantrooms);
     }
 
     public function create()
     {
-        return view('vacantrooms.create');
+        return view('agent.vacantrooms.create');
     }
     public function store(Request $request)
     {
         $input = $request->all();
         VacantRoom::create($input);
-        return redirect('vacantrooms')->with('flash_message', 'Vacant Room Added successfully!');
+        session()->flash('success', 'Added successfully');
+        return redirect('agent/vacantrooms');
     }
 
     public function edit($id)
     {
         $vacantroom = VacantRoom::find($id);
-        return view('vacantrooms.edit')->with('vacantrooms', $vacantroom);
+        return view('agent.vacantrooms.edit')->with('vacantrooms', $vacantroom);
     }
 
     public function update(Request $request, $id)
@@ -34,12 +35,11 @@ class VacantRoomController extends Controller
         $vacantroom = VacantRoom::find($id);
         $input = $request->all();
         $vacantroom->update($input);
-        return redirect('vacantrooms')->with('flash message', 'vacant room Updated!');
+        return redirect('agent/vacantrooms')->with('flash message', 'vacant room Updated!');
     }
     public function destroy($id)
     {
         VacantRoom::destroy($id);
-        return redirect('vacantrooms')->with('flash message', 'Vacant Room deleted');
+        return redirect('agent/vacantrooms')->with('flash message', 'Vacant Room deleted');
     }
 }
-

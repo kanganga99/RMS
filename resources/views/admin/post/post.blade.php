@@ -66,9 +66,6 @@
                     <input type="file" class="custom-file-input" id="image" name="image">
                     <label class="custom-file-label" for="image">Choose file</label>
                   </div>
-                  {{-- <div class="input-group-append">
-                    <span class="input-group-text">Upload</span>
-                  </div> --}}
                 </div>
               </div>
               <div class="form-check pull-left">
@@ -77,9 +74,7 @@
                 </label> 
               </div>
             </div>
-
             <br>
-
             <div class="form-group" data-select2-id="51">
               <label>Select Location</label>
               <select class="select2 select2-hidden-accessible" multiple="" data-placeholder="Select a State"
@@ -89,76 +84,36 @@
                 @endforeach
               </select>
             </div>
-
           </div>
-
-          {{--
-      </div> --}}
-
-      <!-- /.card-body -->
-      {{--
-      <section class="content-header">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-12">
-              <h3>post body</h3>
-            </div>
-          </div>
-        </div>
-        <!-- /.container-fluid -->
-      </section>
-      --}}
-      <!-- Main content -->
-
-
-
-
-      <section class="content">
+        <section class="content">
         <div class="row">
           <div class="container">
             <div class="col-md-12">
               <div class="card card-outline card-info">
                 <h3>Property details</h3>
-
                 <div class="card-header">
                   <h3 class="card-title">Summernote</h3>
                 </div>
-                <!-- /.card-header -->
                 <div class="card-body">
                   <textarea id="summernote" name="body">
-                  {{-- Place <em>some</em> <u>text</u> <strong>here</strong> --}}
-
                 </textarea>
                 </div>
-
               </div>
             </div>
           </div>
-          <!-- /.col-->
         </div>
-        <!-- ./row -->
-
-        <!-- ./row -->
       </section>
-
       <div class="card-footer col-lg-12">
         <button type="submit" class="btn btn-primary">Submit</button>
         <a href='{{ route('post.index') }}' class="btn btn-info">Back</a>
-
       </div>
-
-
-
       </form>
     </div>
   </div>
 </div>
 <script>
   $(function () {
-      // Summernote
       $("#summernote").summernote();
-
-      // CodeMirror
       CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
         mode: "htmlmixed",
         theme: "monokai",

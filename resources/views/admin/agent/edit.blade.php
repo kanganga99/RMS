@@ -70,9 +70,9 @@
                         </div>
                     </div>
                     <div class="form-group" data-select2-id="51">
-                        <label>Select Location</label>
-                        {{-- <select class="select2 select2-hidden-accessible" multiple="" data-placeholder="Select a State" --}}
-                          {{-- style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true" name="categories[]"> --}}
+                      <label>select property</label>
+                        <select class="select2 select2-hidden-accessible" multiple="" data-placeholder="Select a proper"
+                          style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true" name="posts[]">
 {{--           
                           @foreach ($categories as $category )
                           <option value="{{ $category->id }}"
@@ -87,13 +87,30 @@
                             
                             >{{ $category->name }}</option>
                           @endforeach --}}
-                          {{-- @foreach ($categories as $cateitem)
-                          <option value="{{ $cateitem->id }}"
-                              {{ $user->category_id == $cateitem->id ? 'selected' : '' }}>
-                              {{ $cateitem->name }}</option>
-                      @endforeach --}}
+                          @foreach ($posts as $post)
+                          <option value="{{ $agent->post_id }}"
+                              {{ $agent->post_id == $agent->post_id ? 'selected' : '' }}>
+                              {{ $post->title }}</option>
+                      @endforeach
                         {{-- </select> --}}
 
+                        {{-- @foreach ($posts as $post)
+                        <div class="col-lg-3">
+                            <div class="checkbox">
+                                <label ><input type="checkbox" name="post[]" value="{{ $post->id }}"
+                                    
+                                    @foreach($agent->posts as $agent_post)
+                                        @if($agent_post->id == $post->id)
+                                            checked
+                                        @endif
+                                    @endforeach>
+                                    {{ $post->title }}</label>
+                            </div>
+
+                        </div>
+
+                        @endforeach --}}
+                        <label>Select Location</label>
                         <div class="row">
                             @foreach ($categories as $category)
                             <div class="col-lg-3">

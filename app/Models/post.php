@@ -15,9 +15,15 @@ class post extends Model
     {
         return $this->belongsToMany('App\Models\admin','post_id')->withTimestamps();
     }
-
+ 
     public function getRouteKeyName()
     {
         return 'slug';
     }
+
+    public function agents()
+    {
+        return $this->belongsToMany('App\Models\agent','post_id')->withTimestamps();
+    }
+
 }

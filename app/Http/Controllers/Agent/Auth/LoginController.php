@@ -47,21 +47,46 @@ class LoginController extends Controller
     }
 
 
-    public function login(Request $request){
+    public function Login(Request $request){
         // dd($request->all());
 
-        
-        $check = $request->all();
-        if(Auth::guard('agent')->attempt(['email'=> $check['email'] , 'password'=> $check['password']  ])){
-            $id = DB::table('agents')->where('email', $request->email)->first()->post_id;
+        // Auth::login($user);
+        // $check = $request->all();
+
+        // if(Auth::guard('agent')->attempt(['email'=> $check['email'] , 'password'=> $check['password']  ])){
+        //     // $id = DB::table('agents')->where('email', $request->email)->first()->post_id;
                 
-            session(['post_id'=> $id]);
-            // dd($id);
-            return redirect()->route('agent.dashboard')->with('error','Agent Logged in Successfully');
-        }else{
-            return back()->with('error','you have inserted invalid credentials try again please');
-        }
+        //     // session(['post_id'=> $id]);
+        //     // dd($id);
+        //     return redirect()->route('agent.dashboard')->with('success','Agent Logged in Successfully');
+        // }else{
+        //     return back()->with('error','you have inserted invalid credentials try again please');
+        // }
       
+
+        {
+            $this->validateLogin($request);
+    
+            if ($this->attemptLogin($request)) {
+                if ($request->hasSession()) {
+                    $request->session()->put('auth.password_confirmed_at', time());
+                }
+            // $id = DB::table('agents')->where('email', $request->email)->first()->post_id;
+                
+            // session(['post_id'=> $id]);
+            // dd($id);
+                 // Session::get('email', $user->category);
+                //  $data = $request->input();
+                
+                // dd($id);
+                $id = DB::table('agents')->where('email', $request['email'])->first()->post_id;
+                session(['post_id' => $id]);
+                return $this->sendLoginResponse($request);
+            }
+            // return $this->sendFailedLoginResponse($request);
+            return back()->with('error','Hi dear, You have inserted invalid credentials please try again or contact admin. ');
+        }
+    
         // $data = DB::table('agent')->select('id','email')->where('email', $check['email'] )->limit(1)->get();
         
         // if(Session::has('category_id')){
@@ -85,6 +110,9 @@ class LoginController extends Controller
                 // $request->Session()->put('category_id',$agent->id);
                 return ['email'=>'inactive', 'password'=>'you are not activated please contact admin'];
             }else{
+                $id = DB::table('agents')->where('email', $request['email'])->first()->post_id;
+                session(['post_id' => $id]);
+             
                  return ['email'=>$request->email, 'password'=>$request->password,'status'=>1];
             }
           

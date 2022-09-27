@@ -8,29 +8,40 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 
-
 use App\Models\Agent;
 use App\Models\Category;
-
 use App\Models\User;
-
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 
 
 class AgentController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('agent');
+    }
+
     public function Index(){
 
         return view('agent.login');
     }
+
     public function AgentDashboard(){
-//     Session::put('name', 'John');
-// if(Session::has('name')){
-//     dd('name exists');
-// }else{
-//     dd('name does not exist');
-// }
+
+
+        // Session::put('name', 'John');
+        // if(Session::has('name')){
+        //     dd('name exists');
+        // }else{
+        //     dd('name does not exist');
+        // }
+        
         // $users = User::all(); 
         // return view('agent.home',compact('users'));
 
@@ -41,57 +52,60 @@ class AgentController extends Controller
         // if(Session::has('category_id')){
         //     $data=Category::where('id','=', Session::get('id'))->first();
         // }
+        $agents = Agent::where('post_id', session('post_id')); 
         
         $users = User::whereHas('categories', function($query) {
             $query->where('name', 'categories');
         })->get(['name', 'id']);
-            return  view('agent.home',compact('users'));
+            return  view('agent.home',compact('agents'));
             // ,'data'));
-    }
-
-    // public function AgentLogin(Request $request){
-    //     // dd($request->all());
-    //     $check = $request->all();
-    //     if(Auth::guard('agent')->attempt(['email'=> $check['email'] , 'password'=> $check['password']  ])){
-    //         return redirect()->route('agent.dashboard')->with('error','Agent Logged in Successfully');
-    //     }else{
-    //         return back()->with('error','you have inserted invalid credentials try again please');
-    //     }
-        
-    // }
+        }
+        // public function AgentLogin(Request $request){
+        //     // dd($request->all());
+        //     $check = $request->all();
+        //     if(Auth::guard('agent')->attempt(['email'=> $check['email'] , 'password'=> $check['password']  ])){
+        //         return redirect()->route('agent.dashboard')->with('error','Agent Logged in Successfully');
+        //     }else{
+        //         return back()->with('error','you have inserted invalid credentials try again please');
+        //     }
+            
+        // }
     
     public function AgentLogout(){
+
         Auth::guard('agent')->logout();
+
         return redirect()->route('agent.login')->with('error','Agent Logged out Successfully');
     }
 
-    public function AgentRegister(){
-        return view('agent.agent_register');
-    }
+    // public function AgentRegister(){
 
-    public function AgentRegisterCreate(Request $request){
-        // dd($request->all());
-    $input  = request()->except(['_token','_method']);
-    $request->validate([
-            'name' => 'required|max:25',
-            'email' => 'required|between:3,64|email|unique:agents',
-            'phone' => 'required|between:10,15|phone',
+    //     return view('agent.agent_register');
+    // }
 
-            'password' => 'required|min:6|max:20|confirmed',
-            'created_at' => Carbon::now(),
+    // public function AgentRegisterCreate(Request $request){
+    //     // dd($request->all());
+    // $input  = request()->except(['_token','_method']);
+
+    // $request->validate([
+    //         'name' => 'required|max:25',
+    //         'email' => 'required|between:3,64|email|unique:agents',
+    //         'phone' => 'required|between:10,15|phone',
+
+    //         'password' => 'required|min:6|max:20|confirmed',
+    //         'created_at' => Carbon::now(),
         
-        ]);
-        $input['password'] = bcrypt($input['password']);
-        $input['password_confirmation'] = bcrypt($input['password_confirmation']);
-        Agent::insert($input);
-        return redirect()->route('agent.login')->with('success','Agent created Successfully');
+    //     ]);
+    //     $input['password'] = bcrypt($input['password']);
+    //     $input['password_confirmation'] = bcrypt($input['password_confirmation']);
+    //     Agent::insert($input);
+    //     return redirect()->route('agent.login')->with('success','Agent created Successfully');
 
-    }
+    // }
     // public function users(Request $request){
     //     // dd($request->all());
     //     $users = User::all(); 
     //     return  view('agent.home',compact('users'));
- 
 
 
 }

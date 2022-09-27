@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Agent;
 use App\Models\category;
+use App\Models\post;
+
 
 class AgentController extends Controller
 {
@@ -27,8 +29,8 @@ class AgentController extends Controller
      */
     public function index()
     {
-        // $agents = Agent::all();
-        $agents = Agent::where('post_id', session('post_id')); 
+        $agents = Agent::all();
+        // $agents = Agent::where('post_id', session('post_id')); 
         return  view('admin.agent.show',compact('agents'));
     }
 
@@ -40,10 +42,11 @@ class AgentController extends Controller
     public function create()
     {
         $categories = category::all();
+        $posts = post::all();
 
         // $roles = role::all(); return $roles;
         // $roles = role::all();
-       return view('admin.agent.create', compact('categories'));
+       return view('admin.agent.create', compact('categories','posts'));
     //    ,compact('roles'));
     }
 
@@ -60,7 +63,6 @@ class AgentController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:admins'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             // 'password' => ['required', 'string', 'min:8', 'confirmed'],
-
             'phone' => 'required|numeric',
 
         ]);
@@ -72,9 +74,10 @@ class AgentController extends Controller
 
         $agent =Agent::create($request->all());
         $agent->save(); 
-
         // $agent->roles()->sync($request->role);
         $agent ->categories()->sync($request->categories);
+        $agent ->posts()->sync($request->post);
+
 
         return redirect(route('agent.index'));
         // return $request->all();
@@ -100,13 +103,15 @@ class AgentController extends Controller
     public function edit($id)
     {
         $agent=Agent::find($id);
-        // $agent = agent::with ('categories')->where('id',$id)->first();
-        // $category = category::find($category_id);
+        // $posts = agent::with ('posts')->where('id',$id)->first();
+        // $posts = post::find($post_id);
 
         // $roles = role::all();
         $categories = category::all();
+        $posts = post::all();
 
-        return view('admin.agent.edit',compact('categories','agent'));
+
+        return view('admin.agent.edit',compact('categories','agent','posts'));
         // ,'roles'));
     }
   
@@ -130,9 +135,11 @@ class AgentController extends Controller
 
 
         $request->status? : $request['status']=0;
-        $agent = agent::where('id',$id)->update($request->except('_token','_method','category'));
+        $agent = agent::where('id',$id)->update($request->except('_token','_method','category','post'));
         // $user->categories()->sync($request->categories);
         Agent::find($id)->categories()->sync($request->category);
+        Agent::find($id)->posts()->sync($request->post);
+
         return redirect(route('agent.index'))->with('message','agent updated');
 
     }

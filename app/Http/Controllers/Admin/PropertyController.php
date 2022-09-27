@@ -70,10 +70,10 @@ class PropertyController extends Controller
         }
 
          $post->save(); 
-         $post ->categories()->sync($request->categories);
+         $post->categories()->sync($request->categories);
 
 
-       
+         session()->flash('success', 'Added successfully');
          return redirect (route('post.index'));
     }
 
@@ -85,7 +85,7 @@ class PropertyController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
