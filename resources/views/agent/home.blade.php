@@ -99,6 +99,33 @@
             </div>
           </div> --}}
                 <!-- ./col -->
+                <a href="{{ url('agent/tenants') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-warning">
+                <div class="inner">
+                    <h3>44</h3>
+                    <p>Damaged Rooms</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                </div>
+                <a href="{{ url('agent/damagedrooms') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-warning">
+                <div class="inner">
+                    <h3>44</h3>
+                    <p>Vacant Rooms</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                </div>
+               <a href="{{ url('agent/vacantrooms') }}" class="small-box-footer">More Info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
             </div>
             <!-- /.row -->
             <!-- Main row -->
