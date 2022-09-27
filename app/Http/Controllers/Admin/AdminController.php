@@ -13,15 +13,7 @@ use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
-            /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('admin');
-    }
+
 
     public function Index()
     {
@@ -33,15 +25,15 @@ class AdminController extends Controller
         return view('admin.home');
     }
 
-    public function Login(Request $request)
-    {
-        $check = $request->all();
-        if (Auth::guard('admin')->attempt(['email' => $check['email'], 'password' => $check['password']])) {
-            return redirect()->route('admin.dashboard')->with('success', 'Admin Logged in Successfully');
-        } else {
-            return back()>with('error', 'invalid credentials');
-        }
-    }
+    // public function Login(Request $request)
+    // {
+    //     $check = $request->all();
+    //     if (Auth::guard('admin')->attempt(['email' => $check['email'], 'password' => $check['password']])) {
+    //         return redirect()->route('admin.dashboard')->with('success', 'Admin Logged in Successfully');
+    //     } else {
+    //         return back()>with('error', 'invalid credentials');
+    //     }
+    // }
 
     public function AdminLogout()
     {

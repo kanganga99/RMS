@@ -51,9 +51,9 @@
                             <label for="exampleInputFile">File input</label>
                             <div class="input-group ">
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="image" name="image"
+                                    <input type="file" id="image" name="image"
                                         value="{{ $post->image }}">
-                                    <label class="custom-file-label" for="image">Choose file</label>
+                                    <label for="image">Choose file</label>
                                 </div>
                             </div>
                         </div>
@@ -78,12 +78,12 @@
                                 <option value="{{ $category->id }}"
                                     @foreach ($post->categories as $postCategory)
 
-                  @if ($postCategory->id == $category->id)
-                      selected
-                    
-                  @endif @endforeach>
-                                    {{ $category->name }}</option>
-                            @endforeach
+                            @if ($postCategory->id == $category->id)
+                                selected
+                                
+                            @endif @endforeach>
+                                {{ $category->name }}</option>
+                                @endforeach
 
                         </select>
                     </div>
