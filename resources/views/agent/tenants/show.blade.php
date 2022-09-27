@@ -59,11 +59,11 @@
                                             <input type="text" name="ExpectedAmount" class="form-control" style="border-width:2px; border-style: solid ;" placeholder="ExpectedAmount"><br>
                                             <input type="text" name="AmountPaid" class="form-control" style="border-width:2px; border-style: solid ;" placeholder="AmountPaid"><br>
                                             <input type="text" name="Balance" class="form-control" style="border-width:2px; border-style: solid ;" placeholder="Balance"><br>
-                                        </div>
                                         <div class="modal-footer justify-content-between">
                                      {{-- <a href="{{ url('tenants/') }}" title="Transactions"><button class="btn btn-success btn-sm">Send Money</button></a>           --}}
-                            <button type="submit" class="btn btn-success" name="submit" value="submit"> Send Money</button>                                        
+                                     <button type="submit" class="btn btn-success" name="submit" value="submit"> Send Money</button>                                        
                                     </div>
+                                        </div>
                                       </div>
                                     </div>
                                 </div>

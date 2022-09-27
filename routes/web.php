@@ -97,6 +97,8 @@ Route::get('agent/tenants/edit/{tenant_id}', [AgentTenantsController::class, 'ed
 Route::post('agent/tenants/update/{tenant_id}', [AgentTenantsController::class, 'update']);
 Route::get('agent/tenants/show/{tenant_id}', [AgentTenantsController::class, 'show']);
 Route::post('agent/tenants/{tenant_id}', [AgentTenantsController::class, 'destroy']);
+Route::get('tenants/transactions', [TransactionsController::class, 'index']);
+
 
 
 Route::get('agent/vacantrooms', [AgentVacantRoomController::class, 'index']);
