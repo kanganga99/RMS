@@ -36,7 +36,7 @@
                         <h3 class="card-title">Add agent</h3>
                     </div>
                     <div class="card-body ">
-                        @include('admin.inc.messages')
+                        {{-- @include('admin.inc.messages') --}}
                         <div class="form-group">
                             <label for="name">Username</label>
                             <input type="text" class="form-control" name="name" id="name" placeholder="username" value="{{ old('name') }}">
@@ -65,7 +65,7 @@
                                 <label><input type="checkbox" name="status" @if (old('status')==1) checked
                                      @endif value="1">Status</label>
                             </div>
-                            {{-- <div class="row"> --}}
+                            <div class="row">
                                 {{-- @foreach ($roles as $role) --}}
                                 {{-- <label>select location</label> --}}
                                 
@@ -87,14 +87,14 @@
 
                                 <div class="col-lg-3">
                                     <div class="checkbox">
-                                        <label for=""><input type="checkbox" name="post_id[]" value="{{ $post->id }}">{{ $post->title }}</label>
+                                        <label for=""><input type="checkbox" name="id" value="{{ $post->id }}">{{ $post->title }}</label>
                                     </div>
 
                                 </div>
 
                                 @endforeach
 
-                            {{-- </div> --}}
+                            </div>
                             {{-- <div class="form-group" data-select2-id="51">
                                 <label>Select property</label>
                                 <select class="select2 select2-hidden-accessible" multiple="" data-placeholder="Select a property" style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true" name="post[]">

@@ -36,7 +36,7 @@
                         <h3 class="card-title">Add user</h3>
                     </div>
                     <div class="card-body ">
-                        @include('admin.inc.messages')
+                        {{-- @include('admin.inc.messages') --}}
                         <div class="form-group">
                             <label for="name">Username</label>
                             <input type="text" class="form-control" name="name" id="name" placeholder="username" value="{{ old('name') }}">

@@ -11,6 +11,7 @@ class post extends Model
     {
         return $this->belongsToMany('App\Models\category','category_posts')->withTimestamps();
     }
+
     public function admins()
     {
         return $this->belongsToMany('App\Models\admin','post_id')->withTimestamps();
@@ -25,5 +26,14 @@ class post extends Model
     {
         return $this->belongsToMany('App\Models\agent','post_id')->withTimestamps();
     }
+    // public function tenants()
+    // {
+    //     return $this->belongsToMany('App\Models\tenant','post_id')->withTimestamps();
+    // }
+    // public function posts()
+    // {
+    //     return $this->belongsToMany('App\Models\post','post_id');
+    // }
+
 
 }

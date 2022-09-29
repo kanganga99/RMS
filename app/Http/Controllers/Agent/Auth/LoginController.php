@@ -81,7 +81,9 @@ class LoginController extends Controller
                 // dd($id);
                 $id = DB::table('agents')->where('email', $request['email'])->first()->post_id;
                 session(['post_id' => $id]);
-                return $this->sendLoginResponse($request);
+                return redirect()->route('agent.dashboard',)->with('success','Agent Logged in Successfully');
+                
+                // return $this->sendLoginResponse($request);
             }
             // return $this->sendFailedLoginResponse($request);
             return back()->with('error','Hi dear, You have inserted invalid credentials please try again or contact admin. ');

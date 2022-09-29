@@ -35,7 +35,7 @@
             <div class="card-header">
               <h3 class="card-title">Titles</h3>
             </div>
-            @include('admin.inc.messages')
+            {{-- @include('admin.inc.messages') --}}
 
 
             <div class="card-body ">

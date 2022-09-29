@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('houseno')->unique();
             $table->string('post_id')->default('0');
             $table->string('agent_id')->default('0');
+            $table->tinyInteger('status')->default(3);
 
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

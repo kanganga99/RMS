@@ -35,8 +35,9 @@
                         <th>Phone Number</th>
                         <th>House Number</th>
                         <th>ID Number</th>
+                        <th>Status</th>
                         <th>Email</th>
-                        <th>Password</th>
+                        {{-- <th>Password</th> --}}
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -48,20 +49,16 @@
                         <td>{{ $item->phoneno }}</td>
                         <td>{{ $item->houseno }}</td>
                         <td>{{ $item->idno }}</td>
+                        <td>
+                    
+                          {{ $item->status? 'active':'inactive' }}
+                       </td>
                         <td>{{ $item->email }}</td>
-                        <td>{{ $item->password }}</td>
+                        {{-- <td>{{ $item->password }}</td> --}}
                         <td>
                             <a href="{{ url('admin/tenants/show/' . $item->id )}}" title="View tenant"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                             <a href="{{ url('admin/tenants/edit/' . $item->id )}}" title="Edit tenant"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
-                            <form method="POST" action="{{ url('/tenants' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
-                                {{-- {{ method_field('PATCH') }}
-                                {{ csrf_field() }} --}}
-                                
-                                {!! csrf_field() !!}
-                                {{-- @method('PATCH') --}}
-
-                                <button type="submit" class="btn btn-danger btn-sm" title="Delete tenant" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
-                            </form>
+     
                         </td>
                     </tr>
                 @endforeach

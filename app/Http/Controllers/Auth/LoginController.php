@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Tenant;
 use App\Models\category_user;
 use App\Models\category;
 
@@ -92,10 +92,10 @@ class LoginController extends Controller
 
         // $user2 = User::where('email',$request->email)->first()->category_id;
         // $user2 = category::where('id',$request->get(array('id')))->first();
-        $user = User::where('email', $request->email)->first();
-        if (count((array)$user)) {
+        $tenant = Tenant::where('email', $request->email)->first();
+        if (count((array)$tenant)) {
 
-            if ($user->status == 1) {
+            if ($tenant->status == 1) {
 
                 return ['email' => 'inactive', 'password' => 'you are not activated please contact admin'];
             } else {

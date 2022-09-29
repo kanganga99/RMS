@@ -85,7 +85,7 @@
                             <div class="col-lg-3">
                                 <div class="checkbox">
                                     
-                                    <label ><input type="checkbox" name="post_id[]" value="{{ $post->id }}"
+                                    <label ><input type="checkbox" name="post_id" value="{{ $post->id }}"
                                         
                                         {{ $agent->post_id == $agent->post_id ? 'selected' : '' }}>
                                         {{ $post->title }}

@@ -46,7 +46,7 @@ Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->group( function
     Route::get('/register','AdminController@AdminRegister')->name('admin.register');
     Route::post('/register/create','AdminController@AdminRegisterCreate')->name('admin.register.create');
 
-    Route::resource('/user','UserController');
+    // Route::resource('/user','UserController');
     Route::resource('/agent','AgentController');
     Route::resource('/post','PropertyController');
     Route::resource('/category','LocationController');
@@ -104,7 +104,7 @@ Route::post('admin/damagedrooms/update/{damagedroom_id}', [AdminDamagedRoomContr
 Route::post('admin/damagedrooms/{damagedroom_id}', [AdminDamagedRoomController::class, 'destroy']);
 
 
-Route::get('agent/tenants', [AgentTenantsController::class, 'index']);
+Route::get('agent/tenants/', [AgentTenantsController::class, 'index']);
 Route::get('agent/tenants/create', [AgentTenantsController::class, 'create']);
 Route::post('agent/tenants/store', [AgentTenantsController::class, 'store']);
 Route::get('agent/tenants/edit/{tenant_id}', [AgentTenantsController::class, 'edit']);

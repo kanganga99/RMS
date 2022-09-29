@@ -87,7 +87,7 @@ class UserController extends Controller
         //         $user = Auth::User();
         //         Session::put('name', $user->name);
         //     }
-        return redirect(route('user.index'));
+       
         // return $request->all();
     }
 
