@@ -138,7 +138,7 @@
                 </li>
 
                 <li class="nav-item">
-                   <a href="{{ route('agent.index') }}" class="nav-link">
+                   <a href="#" class="nav-link">
                        <i class="far fa-circle nav-icon"></i>
                        <p>Agents</p>
                    </a>

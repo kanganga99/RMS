@@ -60,7 +60,6 @@
                                             <input type="text" name="AmountPaid" class="form-control" style="border-width:2px; border-style: solid ;" placeholder="AmountPaid"><br>
                                             <input type="text" name="Balance" class="form-control" style="border-width:2px; border-style: solid ;" placeholder="Balance"><br>
                                         <div class="modal-footer justify-content-between">
-                                     {{-- <a href="{{ url('tenants/') }}" title="Transactions"><button class="btn btn-success btn-sm">Send Money</button></a>           --}}
                                      <button type="submit" class="btn btn-success" name="submit" value="submit"> Send Money</button>                                        
                                     </div>
                                         </div>
@@ -71,7 +70,8 @@
                         </div>
                         <div class="column right" style="background-color:#bbb;">
                             <h5>Payment Information</h5>
-                            <table class="table-stripped bordered" id="example1">
+                            <a href= "{{ url('agent/tenants/create') }}"></a>
+                            {{-- <table class="table-stripped bordered" id="example1">
                                 <thead>
                                     <tr>
                                         <th>Billing For</th>
@@ -204,7 +204,7 @@
                                         <td>Paid</td>
                                     </tr>
                                 </tbody>
-                            </table>
+                            </table> --}}
                         </div>
                     </div>
                 </div>

@@ -38,6 +38,14 @@
                                 <input type="text" name="password" id="password" class="form-control"><br>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="">Status</label>
+                        <div class="checkbox">
+                            <label ><input type="checkbox" name="status" @if (old('status') == 3)
+                               checked 
+                            @endif value="3">Status</label>
+                        </div>
+                    </div>
                         <div style="text-align:center;">
                             <button type="submit" class="btn btn-success center" name="submit">Save</button>
                         </div>

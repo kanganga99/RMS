@@ -9,5 +9,5 @@ class Tenant extends Model
 {
     protected $table = 'tenants';
     protected $primarykey = 'id';
-    protected $fillable = ['name','phoneno','houseno','idno','email','password'];
+    protected $fillable = ['name','phoneno','houseno','idno','email','password','status'];
 }

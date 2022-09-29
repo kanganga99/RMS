@@ -46,6 +46,16 @@
                                     class="form-control"><br>
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label for="">Status</label>
+
+                        <div class="checkbox">
+                            <label ><input type="checkbox" name="status" @if (old('status') == 3 || $tenants->status ==3) checked @endif value="3">Status</label>
+
+                                {{-- value="{{ $tenants->status }}" class="form-cotrol"> --}}
+                        </div>
+                    </div>
                         <div style="text-align:center;">
                             <button type="submit" class="btn btn-success" id="mybutton">Update</button>
                         </div>

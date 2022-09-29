@@ -12,14 +12,14 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('houseno');
-            $table->string('billing for');
+            $table->string('billingfor');
             $table->string('expectedamount');
             $table->string('amountpaid');
             $table->string('balance');
+            $table->string('datepaid');
             $table->timestamps();
         });
     }
-
     public function down()
     {
         Schema::dropIfExists('transactions');
