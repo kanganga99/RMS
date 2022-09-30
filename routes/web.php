@@ -12,6 +12,8 @@ use App\Http\Controllers\AgentVacantRoomController;
 use App\Http\Controllers\AgentDamagedRoomController;
 use App\Http\Controllers\AgentTenantsController;
 use App\Http\Controllers\AgentTransactionsController;
+use App\Http\Controllers\AdminTransactionsController;
+
 
 
 
@@ -123,4 +125,6 @@ Route::post('agent/transactions/store', [AgentTransactionsController::class, 'st
 Route::get('agent/transactions/edit/{transaction_id}', [AgentTransactionsController::class, 'edit']);
 Route::post('agent/transactions/update/{transaction_id}', [AgentTransactionsController::class, 'update']);
 Route::post('agent/transactions/{transaction_id}', [AgentTransactionsController::class, 'destroy']);
+
+Route::get('admin/transactions/', [AdminTransactionsController::class, 'index']);
 
