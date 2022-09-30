@@ -89,10 +89,8 @@
                     @endforeach --}}
                    {{-- </td> --}}
                    <td>
-                    
                       {{ $user->status? 'active':'inactive' }}
                    </td>
-      
                   <td><a href=" {{ route('user.edit',$user->id) }}"><ion-icon name="create-outline"></ion-icon></a></td>
                  <form method="post" action="{{ route('user.destroy',$user->id) }}" id="delete-form-{{ $user->id }}" style="display: none">
                 @csrf

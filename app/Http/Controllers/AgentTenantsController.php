@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Tenant;
 use App\Models\Agent;
+use App\Models\Post;
+
 use Illuminate\Support\Facades\Auth;
 
 
@@ -23,14 +25,14 @@ class AgentTenantsController extends Controller
 
     public function index()
     {
-        // $tenants = Tenant::all();
-        // $tenants = Tenant::where('post_id', session('post_id')); 
-// $posts = Post::where('user_id','=', Auth::id())->get();
-        $tenants  = Tenant::where('post_id','=', Auth::guard('agent')->user)->get();
- 
-        return view('agent.tenants.index',compact('tenants'));
-    }
+  
+    $tenants  = Tenant::where('post_id',optional(Auth::guard('agent')->user())->id)->get();
+    // $tenants = Tenant::find('post_id',optional(Auth::user())->id)->get();    
 
+    return view('agent.tenants.index',compact('tenants'));
+
+}
+    
     public function create()
     {
         return view('agent.tenants.create');
@@ -40,7 +42,9 @@ class AgentTenantsController extends Controller
     {
         $input = $request->all();
         Tenant::create($input);
-        $request->post_id = auth()->id();
+        // $tenant->post_id=$request->session()->get('post_id');
+
+        // $request->post_id = auth()->id();
         session()->flash('success', 'Added successfully');
         return redirect('agent/tenants');
     }

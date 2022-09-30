@@ -23,5 +23,6 @@ class Agent
         }
         return $next($request);
     }
+
     
 }

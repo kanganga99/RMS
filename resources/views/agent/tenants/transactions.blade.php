@@ -1,3 +1,20 @@
+@extends('agent.layouts.app')
+@section('headsection')
+<link rel="stylesheet" href="{{ asset('admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+<link rel="stylesheet" href="{{ asset('admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+<script src="{{ asset('admin/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+<script>
+    table = $('#example1').DataTable({
+        "paging": true,
+        "ordering": true,
+        "responsive": true,
+        "lengthChange": false,
+        "autoWidth": false
+    });
+</script>
+@endsection
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +35,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($payments as $item)
+            @foreach ($transactions as $item)
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $item->rent }}</td>
                 <td>{{ $item->month }}</td>
@@ -27,8 +44,6 @@
                 <td>{{ $item->prepayments }}</td>
             @endforeach
         </tbody>
-
     </table>
 </body>
-
 </html>

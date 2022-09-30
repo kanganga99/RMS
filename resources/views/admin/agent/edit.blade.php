@@ -79,7 +79,7 @@
                               {{ $agent->post_id == $agent->post_id ? 'selected' : '' }}>
                               {{ $post->title }}</option>
                       @endforeach
-                        </select> --}}
+                                                       </select> --}}
                         <div class="row">
                             @foreach ($posts as $post)
                             <div class="col-lg-3">

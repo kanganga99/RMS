@@ -72,9 +72,9 @@ class AgentController extends Controller
         // }
     
     public function AgentLogout(){
-
+        Session::flush();
         Auth::guard('agent')->logout();
-
+        
         return redirect()->route('agent.login')->with('error','Agent Logged out Successfully');
     }
 

@@ -23,6 +23,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Bills') }}</div>
+                {{ Session::get('post_id') }}
 
                     <div class="card-body">
                         {{-- @if (session('status'))
@@ -42,15 +43,7 @@
                    {{-- session <h1>{{ Session::get(is_array($variable)&& array_key_exists('category_id', $variable)) }}</h1> --}}
 
                   
-                    @foreach ( $categories as $category )
-                   
-                    {{-- @foreach ( $user->category as $category ) --}}
-                     <p>pp
-                        {{ $category->category_id }}</p>
-              
-                    xxx {{ Session::get($category->category_id) }} <br>
-
-                    @endforeach 
+                 
                     {{-- @foreach ( $user->categories as $category )
                     {{ $category->category_id }}</p>
                     @endforeach --}}

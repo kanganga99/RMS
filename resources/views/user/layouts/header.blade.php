@@ -44,9 +44,9 @@
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
-
+                         
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item  text-black" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                <a  href="{{ route('logout') }}" class="dropdown-item text-black"  onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
@@ -54,19 +54,13 @@
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
+                                <div class=" dropdown-item">
+                                    <a href="{{ route('tenant.profile') }}" class="btn btn-default btn-flat">Profile</a>
+                                </div>
                             </div>
                         </li>
                         @endguest
-                        <div class="dropdown-menu text-black dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div>
+                  
 
                     </ul>
 

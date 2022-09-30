@@ -129,7 +129,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('agent/tenants/transactions') }}" class="nav-link">
+                            <a href="{{ url('agent/transactions') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Transactions</p>
                             </a>

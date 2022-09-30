@@ -86,7 +86,7 @@ class LoginController extends Controller
                 // return $this->sendLoginResponse($request);
             }
             // return $this->sendFailedLoginResponse($request);
-            return back()->with('error','Hi dear, You have inserted invalid credentials please try again or contact admin. ');
+            return back()->with('error','Oh! dear, You have inserted invalid credentials please try again or contact admin. ');
         }
     
         // $data = DB::table('agent')->select('id','email')->where('email', $check['email'] )->limit(1)->get();

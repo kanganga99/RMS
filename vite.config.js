@@ -26,3 +26,11 @@ export default defineConfig({
         },
     },
 });
+
+
+
+// $request->authenticate();
+// $data = $request->input();
+// $sid = DB::table('users')->where('email', $data['email'])->first()->school_id;
+//     session(['school_id' => $sid]);
+//         return redirect()->intended(RouteServiceProvider::HOME);

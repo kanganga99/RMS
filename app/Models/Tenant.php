@@ -22,4 +22,9 @@ class Tenant extends Authenticatable
     {
         return 'slug';
     }
+    public function profile()
+    {
+        return $this->hasOne(Profile::class, 'tenant_id');
+    }
+
 }
