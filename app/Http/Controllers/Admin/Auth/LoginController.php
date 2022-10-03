@@ -46,7 +46,7 @@ class LoginController extends Controller
         // dd($request->all());
         $check = $request->all();
         if(Auth::guard('admin')->attempt(['email'=> $check['email'] , 'password'=> $check['password']  ])){
-            return redirect()->route('admin.dashboard')->with('error','Admin Logged in Successfully');
+            return redirect()->route('admin.dashboard')->with('success','Admin Logged in Successfully');
         }else{
             return back()->with('error','invalid credentials');
         }

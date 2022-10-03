@@ -51,7 +51,6 @@
              </a>
              <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
                  <a href="" class="media-body">
-                     <!-- Menu Footer-->
                      <div class=" dropdown-item">
                          <a href="#" class="btn btn-default btn-flat">Profile</a>
                      </div>
@@ -59,28 +58,15 @@
                      <div class="dropdown-item btn btn-default pull-right">
                          <a href="{{ route('admin.logout') }}" class="btn btn-default btn-flat">Logout</a>
                      </div>
-
              </div>
              </a>
          </li>
-
          </div>
          </li>
      </ul>
  </nav>
- <!-- /.navbar -->
-
- <!-- Main Sidebar Container -->
  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-     <!-- Brand Logo -->
-     {{-- <a href="index3.html" class="brand-link">
-     <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-     <span class="brand-text font-weight-light">AdminLTE 3</span>
-   </a> --}}
-
-     <!-- Sidebar -->
      <div class="sidebar">
-         <!-- Sidebar user panel (optional) -->
 
          <div class="user-panel mt-3 pb-3 mb-3 d-flex">
              <div class="image">
@@ -93,7 +79,6 @@
              </div>
          </div>
 
-         <!-- SidebarSearch Form -->
          <div class="form-inline">
              <div class="input-group" data-widget="sidebar-search">
                  <input class="form-control form-control-sidebar" type="search" placeholder="Search"
@@ -105,7 +90,6 @@
                  </div>
              </div>
          </div>
-
          <nav class="mt-2">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                  data-accordion="false">
@@ -116,14 +100,7 @@
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="{{ route('user.index') }}" class="nav-link">
-                         <i class="far fa-circle nav-icon"></i>
-                         <p>User</p>
-                     </a>
-                 </li>
-
-                 <li class="nav-item">
-                     <a href="#" class="nav-link">
+                     <a href="{{ route('agent.index') }}" class="nav-link">
                          <i class="far fa-circle nav-icon"></i>
                          <p>Agents</p>
                      </a>
@@ -134,9 +111,6 @@
                          <p>Locations</p>
                      </a>
                  </li>
-                 {{-- </ul> --}}
-                 {{-- </li> --}}
-
                  <li class="nav-item">
                      <a href="#" class="nav-link">
                          <i class="nav-icon fas fa-table"></i>
@@ -172,6 +146,7 @@
                          <p>Transactions</p>
                      </a>
                  </li>
+             </ul>
          </nav>
      </div>
  </aside>

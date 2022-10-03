@@ -1,7 +1,21 @@
 @extends('admin.layouts.app')
 
 @section('main-content')
+@section('headsection')
+<link rel="stylesheet" href="{{ asset('admin/plugins/select2/css/select2.min.css') }}">
+{{--
+<link rel="stylesheet" href="{{ asset('admin/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}"> --}}
 
+<script src="{{ asset('admin/plugins/select2/js/select2.full.min.js') }}"></script>
+<script>
+  $(document).ready(function (){
+    $('.select2').select2();
+    // $('.select2bs4').select2({
+    //   theme: 'bootstrap4'
+    // });
+  })
+</script>
+@endsection
 <div class="content-wrapper">
 
     <div class="card ">
@@ -22,7 +36,7 @@
                         <h3 class="card-title">Add user</h3>
                     </div>
                     <div class="card-body ">
-                        @include('admin.inc.messages')
+                        {{-- @include('admin.inc.messages') --}}
                         <div class="form-group">
                             <label for="name">Username</label>
                             <input type="text" class="form-control" name="name" id="name" placeholder="username" value="{{ old('name') }}">
@@ -34,7 +48,7 @@
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control" name="password" id="password" placeholder="password"  value="{{ old('password') }}">
+                            <input type="password" class="form-control" name="password" id="password" placeholder="password" value="{{ old('password') }}">
                         </div>
                         <div class="form-group">
                             <label for="password_confirmation">Confirm Password</label>
@@ -42,39 +56,40 @@
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
-                            <input type="text" class="form-control" name="phone" id="phone" placeholder="phone number"  value="{{ old('phone') }}">
+                            <input type="text" class="form-control" name="phone" id="phone" placeholder="phone number" value="{{ old('phone') }}">
                         </div>
                         <div class="form-group">
                             <label for="">Status</label>
+                        
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="status" @if (old('status')==3) checked
+                                     @endif value="3">Status</label>
+                            </div>
+                            <div class="row">
+                                {{-- @foreach ($roles as $role) --}}
+                                @foreach ($categories as $category )
 
-                        <div class="checkbox">
-                            <label ><input type="checkbox" name="status" @if (old('status') == 3)
-                               checked 
-                            @endif value="3">Status</label>
-                        </div>
-                    </div>
-                        <div class="form-group">
-                            {{-- <label for="role">Assign Role</label>
-                                <select name="role" id="" class="form-control">
-                                  <option value="0">Editor</option>
-                                  <option value="1">Publisher</option>
-                                  <option value="3">Writer</option>
-                                </select> --}}
-                            {{-- <label>Assign Role</label> --}}
-                            {{-- <div class="row">
-                                @foreach ($roles as $role)
                                 <div class="col-lg-3">
                                     <div class="checkbox">
-                                        <label for=""><input type="checkbox" name="role[]" value="{{ $role->id }}"> name{{ $role->name }}</label>
+                                        <label for=""><input type="checkbox" name="category[]" value="{{ $category->id }}">{{ $category->name }}</label>
                                     </div>
 
                                 </div>
 
                                 @endforeach
-
+                      
+                            </div>
+                            {{-- <div class="form-group" data-select2-id="51">
+                                <label>Select Location</label>
+                                <select class="select2 select2-hidden-accessible" multiple="" data-placeholder="Select a State" style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true" name="categories[]">
+                                    @foreach ($categories as $category )
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
                             </div> --}}
                         </div>
                     </div>
+
                     <div class="card-footer text-center form-group col-lg-12">
                         <button type="submit" class="btn btn-primary">Submit</button>
                         <a href='{{ route('user.index') }}' class="btn btn-info">Back</a>

@@ -36,7 +36,7 @@
                         <h3 class="card-title">Add agent</h3>
                     </div>
                     <div class="card-body ">
-                        @include('admin.inc.messages')
+                        {{-- @include('admin.inc.messages') --}}
                         <div class="form-group">
                             <label for="name">Username</label>
                             <input type="text" class="form-control" name="name" id="name" placeholder="username" value="{{ old('name') }}">
@@ -67,9 +67,9 @@
                             </div>
                             <div class="row">
                                 {{-- @foreach ($roles as $role) --}}
-                                <label>select location</label>
+                                {{-- <label>select location</label> --}}
                                 
-                                @foreach ($categories as $category )
+                                {{-- @foreach ($categories as $category )
 
                                 <div class="col-lg-3">
                                     <div class="checkbox">
@@ -78,31 +78,31 @@
 
                                 </div>
 
-                                @endforeach
+                                @endforeach --}}
 
-                            </div>
+                            {{-- </div> --}}
                             {{-- <div class="row"> --}}
                                 {{-- @foreach ($roles as $role) --}}
-                                {{-- @foreach ($posts as $post )
+                                @foreach ($posts as $post )
 
                                 <div class="col-lg-3">
                                     <div class="checkbox">
-                                        <label for=""><input type="checkbox" name="post[]" value="{{ $post->id }}">{{ $post->name }}</label>
+                                        <label for=""><input type="checkbox" name="id" value="{{ $post->id }}">{{ $post->title }}</label>
                                     </div>
 
                                 </div>
 
-                                @endforeach --}}
+                                @endforeach
 
-                            {{-- </div> --}}
-                            <div class="form-group" data-select2-id="51">
+                            </div>
+                            {{-- <div class="form-group" data-select2-id="51">
                                 <label>Select property</label>
-                                <select class="select2 select2-hidden-accessible" multiple="" data-placeholder="Select a property" style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true" name="posts[]">
+                                <select class="select2 select2-hidden-accessible" multiple="" data-placeholder="Select a property" style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true" name="post[]">
                                     @foreach ($posts as $post )
                                     <option value="{{ $post->id }}">{{ $post->title }}</option>
                                     @endforeach
                                 </select>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
 

@@ -35,7 +35,7 @@
             <div class="card-header">
               <h3 class="card-title">Titles</h3>
             </div>
-            @include('admin.inc.messages')
+            {{-- @include('admin.inc.messages') --}}
 
 
             <div class="card-body ">
@@ -61,12 +61,12 @@
               <div class="pull-right">
 
                 <label for="exampleInputFile">File input</label>
-                <div class="input-group ">
+                {{-- <div class="input-group "> --}}
                   <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="image" name="image">
-                    <label class="custom-file-label" for="image">Choose file</label>
+                    <input type="file"  id="image" name="image">
+                    <label  for="image">Choose file</label>
                   </div>
-                </div>
+                {{-- </div> --}}
               </div>
               <div class="form-check pull-left">
                 <label>

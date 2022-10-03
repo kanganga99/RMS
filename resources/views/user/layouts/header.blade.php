@@ -21,7 +21,7 @@
                 <nav class="site-navigation position-relative text-right" role="navigation">
 
                     <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                        <li><a href="{{ url('/') }}" class="nav-link">Home</a></li>
+                        <li><a href="{{ url('/home') }}" class="nav-link">Home</a></li>
                         <li><a href="#properties-section" class="nav-link">Properties</a></li>
                         <li><a href="#agents-section" class="nav-link">Agents</a></li> 
                         <li><a href="#about-section" class="nav-link">About</a></li>
@@ -34,19 +34,19 @@
                         </li>
                         @endif
 
-                        @if (Route::has('register'))
+                        {{-- @if (Route::has('register'))
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
-                        @endif
+                        @endif --}}
                         @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
-
+                         
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item  text-black" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                <a  href="{{ route('logout') }}" class="dropdown-item text-black"  onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
@@ -54,19 +54,13 @@
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
+                                <div class=" dropdown-item">
+                                    <a href="{{ route('tenant.profile') }}" class="btn btn-default btn-flat">Profile</a>
+                                </div>
                             </div>
                         </li>
                         @endguest
-                        <div class="dropdown-menu text-black dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div>
+                  
 
                     </ul>
 

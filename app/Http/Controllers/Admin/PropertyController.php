@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 
 class PropertyController extends Controller
 {
+     
     /**
      * Display a listing of the resource.
      *
@@ -51,7 +52,7 @@ class PropertyController extends Controller
              'body'=>'required',
              'image'=>'required',
 
-         ]);    
+         ]);         
          $post = new post;
          $post->title = $request->title;
         //  $post->image =implode ('|',$image);
@@ -69,7 +70,7 @@ class PropertyController extends Controller
         }
 
          $post->save(); 
-         $post ->categories()->sync($request->categories);
+         $post->categories()->sync($request->categories);
 
 
          session()->flash('success', 'Added successfully');

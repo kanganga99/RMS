@@ -70,7 +70,7 @@ class AgentController extends Controller
 
         $request['password'] = bcrypt($request->password);
         $agent = new agent;
-        $agent->post_id=$request->session()->get('post_id');
+        // $agent->post_id=$request->session()->get('post_id');
 
         $agent =Agent::create($request->all());
         $agent->save(); 

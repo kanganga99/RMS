@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
+
+
     public function Index()
     {
         return view('admin.admin_login');
@@ -23,20 +25,20 @@ class AdminController extends Controller
         return view('admin.home');
     }
 
-    public function Login(Request $request)
-    {
-        $check = $request->all();
-        if (Auth::guard('admin')->attempt(['email' => $check['email'], 'password' => $check['password']])) {
-            return redirect()->route('admin.dashboard')->with('success', 'Admin Logged in Successfully');
-        } else {
-            return back()->with('error', 'invalid credentials');
-        }
-    }
+    // public function Login(Request $request)
+    // {
+    //     $check = $request->all();
+    //     if (Auth::guard('admin')->attempt(['email' => $check['email'], 'password' => $check['password']])) {
+    //         return redirect()->route('admin.dashboard')->with('success', 'Admin Logged in Successfully');
+    //     } else {
+    //         return back()>with('error', 'invalid credentials');
+    //     }
+    // }
 
     public function AdminLogout()
     {
         Auth::guard('admin')->logout();
-        return redirect()->route('login-form')->with('error', 'Admin Logged out Successfully');
+        return redirect()->route('admin.login')->with('error','Admin Logged out Successfully');
     }
 
     public function AdminRegister()
@@ -64,6 +66,6 @@ class AdminController extends Controller
 
         Admin::insert($input);
 
-        return redirect()->route('login-form')->with('success', 'Admin created Successfully');
+        return redirect()->route('admin.login')->with('success', 'Admin created Successfully');
     }
 }

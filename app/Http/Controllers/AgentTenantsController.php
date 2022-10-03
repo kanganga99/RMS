@@ -4,25 +4,35 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tenant;
+use App\Models\Agent;
+use App\Models\Post;
+
+use Illuminate\Support\Facades\Auth;
+
 
 
 class AgentTenantsController extends Controller
 {
-    public function index()
+            /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
     {
-
-
-// $request->authenticate();
-// $data = $request->input();
-// $sid = DB::table('users')->where('email', $data['email'])->first()->school_id;
-//     session(['school_id' => $sid]);
-//         return redirect()->intended(RouteServiceProvider::HOME);
-
-
-        $tenants = Tenant::all();
-        return view('agent.tenants.index')->with('tenants',$tenants);
+        $this->middleware('agent');
     }
 
+    public function index()
+    {
+  
+    $tenants  = Tenant::where('post_id',optional(Auth::guard('agent')->user())->id)->get();
+    // $tenants = Tenant::find('post_id',optional(Auth::user())->id)->get();    
+
+    return view('agent.tenants.index',compact('tenants'));
+
+}
+    
     public function create()
     {
         return view('agent.tenants.create');
@@ -32,6 +42,9 @@ class AgentTenantsController extends Controller
     {
         $input = $request->all();
         Tenant::create($input);
+        // $tenant->post_id=$request->session()->get('post_id');
+
+        // $request->post_id = auth()->id();
         session()->flash('success', 'Added successfully');
         return redirect('agent/tenants');
     }

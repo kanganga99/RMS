@@ -36,7 +36,7 @@
                         <th>House Number</th>
                         <th>ID Number</th>
                         <th>Email</th>
-                        <th>Password</th>
+                        {{-- <th>Password</th> --}}
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -50,7 +50,7 @@
                         <td>{{ $item->houseno }}</td>
                         <td>{{ $item->idno }}</td>
                         <td>{{ $item->email }}</td>
-                        <td>{{ $item->password }}</td>
+                        {{-- <td>{{ $item->password }}</td> --}}
                         <td>{{ $item->status? 'active':'inactive' }}</td>
 
                         {{-- <td>{{ $item->status }}</td> --}}

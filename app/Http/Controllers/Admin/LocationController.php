@@ -8,6 +8,7 @@ use App\Models\category;
 
 class LocationController extends Controller
 {
+       
     /**
      * Display a listing of the resource.
      *

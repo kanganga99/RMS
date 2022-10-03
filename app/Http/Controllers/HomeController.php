@@ -3,38 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Tenant;
+use App\Models\post;
+// use App\Models\User;
+// use Illuminate\Support\Facades\Session;
+// use Illuminate\Support\Facades\DB;
+use App\Models\category_user;
+use \Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
-     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+     
     public function __construct()
     {
         $this->middleware('auth');
     }
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    // public function userHome()
-    // {
-    //     return view('home',["msg"=>"am user role"]);
-    // }
-    // public function agentHome()
-    // {
-    //     return view('home',["msg"=>"am agent role"]);
-    // }
-    // public function adminHome()
-    // {
-    //     return view('home',["msg"=>"am admin role"]);
-    // }
+   
     public function index()
     {
-        return view('/home');
+        
+    $tenant = Tenant::where('post_id',optional(Auth::guard('web')->user())->id)->get(); 
+    
+        return view('/home',compact('tenant'));
     }
 }
 

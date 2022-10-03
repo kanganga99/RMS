@@ -20,6 +20,15 @@ class Agent extends  Authenticatable
      * @var array<int, string>
      */
     protected $guard = 'agent';
+
+    public function categories()
+    {
+        return $this->belongsToMany('App\Models\category','category_agents')->withTimestamps();
+    }
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
     protected $fillable = [
         'name',
         'phone',
@@ -36,6 +45,7 @@ class Agent extends  Authenticatable
     protected $hidden = [
         'password',
         'password_confirmation',
+        'remember_token',
     ];
 
     /**
@@ -46,6 +56,11 @@ class Agent extends  Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-  
+
+    public function posts()
+    {
+        return $this->belongsToMany(post::class,'posts')->withTimestamps();
+    } 
+     
 }
 

@@ -18,11 +18,12 @@
 
         <a href="#property-details" class="smoothscroll arrow-down"><span class="icon-arrow_downward"></span></a>
     </div>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Dashboard') }}</div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Bills') }}</div>
+                {{ Session::get('post_id') }}
 
                     <div class="card-body">
                         {{-- @if (session('status'))
@@ -30,28 +31,42 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    {{-- @if(session()->has('category_id')){ --}}
+                        {{-- // session()->get('category_id'); --}}
+                        {{-- {{ session()->get('category_id') }} --}}
 
-                    {{ __('You are logged in!') }} --}}
+                        {{-- // echo $request->session()->get('category_id'); --}}
+                    {{-- } --}}
+                    {{-- @endif --}}
+                    {{-- xxx {{ Session::get( $category->category_id) }} <br> --}}
+                   {{-- session <h1>{{ Session::get('post_id')}}</h1> --}}
+                   {{-- session <h1>{{ Session::get(is_array($variable)&& array_key_exists('category_id', $variable)) }}</h1> --}}
 
-                        <section>
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <label>Name:Kamau</label><br>
-                                        <label>House Number:340B-C2<label>
-                                       <label>Rent Payable:45000</label>
-                                    </tr><br>
-                                    <tr>
-                                        <button type="button" class="btn btn-success" data-toggle="modal"
-                                            data-target="#modal-default">
-                                            Pay Now
-                                        </button>
-                                    </tr>
+                  
+                 
+                    {{-- @foreach ( $user->categories as $category )
+                    {{ $category->category_id }}</p>
+                    @endforeach --}}
 
-                                </tbody>
-                            </table>
-                        </section>
-                    </div>
+                    {{-- <p>{{ $data->name }}</p> --}}
+
+                     {{-- {{ Auth::user()->name }}
+                    <br>
+                    {{ $msg }} --}}
+
+                    {{-- {{ __('You are logged in!') }} --}}
+
+            <p>Water:</p><br>
+            <p> Trash:</p><br>
+            <p>House Rent:</p><br>
+            {{-- @foreach ( $users as $row )
+            <p>myyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy{{ $row->name }}</p>
+            @endforeach      --}}
+    <div class="mt-5">
+        <img src="{{ asset('user/images/person_1.jpg') }}" alt="Image" class="w-25 mb-3 rounded-circle">
+        <h4 class="text-black">Elijah Moses</h4>
+
+    </div>
                 </div>
             </div>
         </div>
