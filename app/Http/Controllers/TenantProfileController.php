@@ -33,3 +33,15 @@ class TenantProfileController extends Controller
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
