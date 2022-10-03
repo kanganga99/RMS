@@ -17,8 +17,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('tenant_id')->unsigned();
             $table->string('image')->nullable();
-            $table->string('phoneno')->unique();
-            $table->string('mobile')->unique();
+            $table->string('phoneno')->default('0');
             $table->foreign('tenant_id')->references('id')->on('tenants')->onDelete('cascade');
             $table->timestamps();
         });
