@@ -3,6 +3,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Tenant;
 use App\Models\post;
+use Illuminate\Support\Facades\Auth;
+
 
 
 class AdminTenantsController extends Controller
@@ -20,6 +22,8 @@ class AdminTenantsController extends Controller
     public function index()
     {
         $tenants = Tenant::all();
+    // $tenants  = Tenant::where('post_id',optional(Auth::guard('admin')->user())->id)->get();
+
         return view('admin.tenants.index')->with('tenants',$tenants);
     }
 

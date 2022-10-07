@@ -1,4 +1,4 @@
-@extends('agent.layouts.app')
+@extends('admin.layouts.app')
 @section('headsection')
     <link rel="stylesheet" href="{{ asset('admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">

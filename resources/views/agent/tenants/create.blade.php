@@ -41,9 +41,7 @@
                         <div class="form-group">
                             <label for="">Status</label>
                         <div class="checkbox">
-                            <label ><input type="checkbox" name="status" @if (old('status') == 3)
-                               checked 
-                            @endif value="3">Status</label>
+                            <label ><input type="checkbox" name="status" @if (old('status') == 3) checked @endif value="3">Status</label>
                         </div>
                     </div>
                         <div style="text-align:center;">
