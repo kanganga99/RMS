@@ -13,20 +13,6 @@ class AdminTransactionsController extends Controller
         $transactions = Transactions::all();
         return view('admin.transactions.index')->with('transactions',$transactions);
     }
-
-    // public function create()
-    // {
-    //     return view('agent.transactions.create');
-    // }
-
-    // public function store(Request $request)
-    // {
-    //     $input = $request->all();
-    //     Transactions::create($input);
-    //     session()->flash('success', 'Added successfully');
-    //     return redirect('agent/transactions');
-    // }
-
     public function show($id)
     {
         $transaction = Transactions::find($id);
@@ -46,10 +32,4 @@ class AdminTransactionsController extends Controller
         $transaction->update($input);
         return redirect('admin/transactions')->with('flash message', 'transaction Updated!');
     }
-
-    // public function destroy($id)
-    // {
-    //     Transactions::destroy($id);
-    //     return redirect('agent/transactions')->with('flash message', 'transaction deleted!');
-    // }
 }

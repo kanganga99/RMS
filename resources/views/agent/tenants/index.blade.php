@@ -21,7 +21,7 @@
         
         <div class="card">
           <div class="card-header">
-            <a href="{{ url('agent/tenants/create') }}" class="btn btn-success btn-sm" title="Add New Tenant">
+            <a href="{{ url('agent/tenants/create') }}" class="btn btn-success btn-sm addbtn" title="Add New Tenant">
               <i class="fa fa-plus" aria-hidden="true"></i> Add New
           </a>          
           </div>
@@ -36,7 +36,6 @@
                         <th>House Number</th>
                         <th>ID Number</th>
                         <th>Email</th>
-                        {{-- <th>Password</th> --}}
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -50,15 +49,10 @@
                         <td>{{ $item->houseno }}</td>
                         <td>{{ $item->idno }}</td>
                         <td>{{ $item->email }}</td>
-                        {{-- <td>{{ $item->password }}</td> --}}
                         <td>{{ $item->status? 'active':'inactive' }}</td>
-
-                        {{-- <td>{{ $item->status }}</td> --}}
-
                         <td>
                             <a href="{{ url('agent/tenants/show/' . $item->id )}}" title="View tenant"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                             <a href="{{ url('agent/tenants/edit/' . $item->id )}}" title="Edit tenant"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
-                           
                         </td>
                     </tr>
                 @endforeach
@@ -66,6 +60,16 @@
             </table>
           </div>
         </div>
+        <script>
+          $(document).ready(function() {
+              $('.addbtn').click(function() {
+                  var row = $(this).closest('tr');
+                  var exp = row.find('#post_id').text();
+                  $('#post_id').val(exp);
+                  console.log(exp);
+              });
+          });
+      </script>
           </section>
         </div>
 @endsection

@@ -23,7 +23,7 @@
         {{-- <div class="col-md-8"> --}}
             <div class="card">
                 <div class="card-header">{{ __('Profile') }}</div>
-                {{ Session::get('post_id') }}
+                {{-- {{ Session::get('post_id') }} --}}
 
                     <div class="card-body">
         <div class="col-md-4">
@@ -43,6 +43,8 @@
         <div class="col-md-8">
             <p>Name <b>{{ $tenant->name }}</b></p>
             <p>Email <b>{{ $tenant->email }}</b></p>
+            <p>Email <b>{{ $tenant->phoneno }}</b></p>
+
 
 
         </div>

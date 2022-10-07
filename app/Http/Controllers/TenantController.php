@@ -22,7 +22,7 @@ class TenantController extends Controller
         $input = $request->all();
         Tenant::create($input);
         session()->flash('success', 'Added successfully');
-        return redirect('home')->with('success', 'flash message success!');
+        return redirect('home');
     }
 
     public function show($id)

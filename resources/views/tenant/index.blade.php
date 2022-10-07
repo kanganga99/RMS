@@ -37,8 +37,7 @@
                         </thead>
                         <tbody>
                             @foreach ($transactions as $item)
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
+ p        <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->houseno }}</td>
                                     <td>{{ $item->billingfor }}</td>
@@ -46,11 +45,6 @@
                                     <td>{{ $item->amountpaid }}</td>
                                     <td>{{ $item->balance }}</td>
                                     <td>{{ $item->datepaid }}</td>
-                                    <td>
-                                        <a href="{{ url('agent/transactions/edit/' . $item->id) }}"
-                                            title="Edit transaction"><button class="btn btn-primary btn-sm"><i
-                                                    class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
-                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
