@@ -88,8 +88,6 @@ class AdminTenantsController extends Controller
         // return redirect(route('user.index'))->with('message','user updated');
         return redirect('admin/tenants')->with('message', 'tenant Updated!');
 
-
-
         // $tenant = Tenant::find($id);
         // $input = $request->all();
         // $tenant->update($input);

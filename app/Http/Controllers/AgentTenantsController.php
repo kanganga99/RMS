@@ -62,7 +62,6 @@ class AgentTenantsController extends Controller
         $tenant = Tenant::find($id);
         return view('agent.tenants.show')->with('tenants',$tenant);
     }
-
     public function edit($id)
     {
         $tenant = Tenant::find($id);

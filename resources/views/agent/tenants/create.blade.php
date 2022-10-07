@@ -70,7 +70,6 @@
                             <button type="submit" class="btn btn-success center" name="submit">Save</button>
                         </div>
                     </form>
-
                     <script>
                         $(document).ready(function() {
                             $('.paybtn').click(function() {
