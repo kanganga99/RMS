@@ -77,11 +77,9 @@
                             <div class="card-footer text-center form-group col-lg-12">
                                 <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                                 {{-- <a href='' class="btn btn-info">Back</a> --}}
-        
                             </div>
-                {{-- <div style="text-align:center;">
-                    <button type="submit" class="btn btn-success center" name="submit">Save</button>
-                </div> --}}
+        
+                        </div>
             </form>
         </div>
     </div>

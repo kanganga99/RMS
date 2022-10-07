@@ -22,42 +22,6 @@
                     <div class="card-header">{{ __('Bills') }}</div>
                     {{-- {{ Session::get('post_id') }} --}}
                     <div class="card-body">
-
-                        {{-- <table id="example" class="table table-bordered table-striped">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Name</th>
-                                    <th>House Number</th>
-                                    <th>Billing For</th>
-                                    <th>Expected Amount</th>
-                                    <th>Amount Paid</th>
-                                    <th>Balance</th>
-                                    <th>Date Paid</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($transactions as $item)
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->name }}</td>
-                                        <td>{{ $item->houseno }}</td>
-                                        <td>{{ $item->billingfor }}</td>
-                                        <td>{{ $item->expectedamount }}</td>
-                                        <td>{{ $item->amountpaid }}</td>
-                                        <td>{{ $item->balance }}</td>
-                                        <td>{{ $item->datepaid }}</td>
-                                        <td>
-                                            <a href="{{ url('agent/transactions/edit/' . $item->id) }}"
-                                                title="Edit transaction"><button class="btn btn-primary btn-sm"><i
-                                                        class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table> --}}
-
                         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-default">
                             Make Payment
                         </button>
@@ -103,8 +67,7 @@
                                                         </div>
                                                         <div class="row mb-3">
                                                             <div class="col">
-                                                                <label class="form-label" for="inputreligion">Billing
-                                                                    For</label><br>
+                                                                <label class="form-label" for="inputreligion">Billing For</label><br>
                                                                 <select class="form-control" type="billingfor"
                                                                     name="billingfor">
                                                                     <option value="">Select Month</option>
@@ -124,37 +87,32 @@
                                                             </div>
                                                             <div class="col">
                                                                 <label>Balance</label><br>
-                                                                <input type="text" name="balance" id="balance"
-                                                                    class="form-control"><br>
+                                                                <input type="text" name="balance" id="balance" class="form-control"><br>
                                                             </div>
                                                         </div>
                                                         <div class="row mb-3">
                                                             <div class="col">
                                                                 <label> Date Paid</label>
-                                                                <input type="date" id="datepaid" name="datepaid"
-                                                                    class="for-control">
+                                                                <input type="date" id="datepaid" name="datepaid" class="for-control">
                                                             </div>
 
                                                         </div>
                                                         <div style="text-align:center;">
-                                                            <button type="submit" class="btn btn-success center"
-                                                                name="submit">Save</button>
+                                                            <button type="submit" class="btn btn-success center" name="submit">Save</button>
                                                         </div>
                                                     </form>
                                                 </div>
                                             </div>
                                         </section>
                                     </div>
-                                
+
                                 </div>
-                                <!-- /.modal-content -->
                             </div>
-                            <!-- /.modal-dialog -->
                         </div>
                         <div class="mt-5">
                             <img src="{{ asset('user/images/person_1.jpg') }}" alt="Image"
                                 class="w-25 mb-3 rounded-circle">
-                            <h4 class="text-black">Elijah Moses</h4>
+                            <h5 class="text-black">Elijah Moses</h5>
                         </div>
                     </div>
                 </div>

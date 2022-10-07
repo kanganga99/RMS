@@ -5,7 +5,6 @@
             <div class="card">
                 <div class="card-header">Tenants Page</div>
                 <div class="card-body">
-
                     <form action="{{ url('agent/tenants/store') }}" method="post">
                         {!! csrf_field() !!}
                         <div class="row mb-3">
@@ -48,16 +47,6 @@
                             <div class="col">
                             </div>
                         </div>
-                        <div class="row mb-3 ">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="password_confirmation">Confirm Password</label>
-                                    <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" placeholder="confirm password" required>
-                                </div>
-                            </div>
-                            <div class="col">  
-                            </div>
-                        </div>
                         <div class="form-group">
                             <label for="">Status</label>
                             <div class="checkbox">
@@ -65,7 +54,7 @@
                                         @if (old('status') == 3) checked @endif value="3">Status</label>
                             </div>
                         </div>
-                        {{-- <input type="hidden" class="form-control" style="border-width:2px; border-style: solid ;" id="hiddenexp" value="" name="post_id"> --}}
+                        
                         <div style="text-align:center;">
                             <button type="submit" class="btn btn-success center" name="submit">Save</button>
                         </div>
