@@ -16,13 +16,13 @@ class TenantController extends Controller
     {
         return view('tenants.create');
     }
-
     public function store(Request $request)
     {
         $tenant = new Tenant;
         $input = $request->all();
         Tenant::create($input);
-        return redirect('tenants')->with('success', 'flash message success!');
+        session()->flash('success', 'Added successfully');
+        return redirect('home')->with('success', 'flash message success!');
     }
 
     public function show($id)

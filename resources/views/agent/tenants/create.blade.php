@@ -35,7 +35,17 @@
                             </div>
                             <div class="col">
                                 <label>Password</label><br>
-                                <input type="text" name="password" id="password" class="form-control"><br>
+                                <input type="password" name="password" id="password" class="form-control"><br>
+                            </div>
+                        </div>
+                        <div class="row mb-3 ">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="password_confirmation">Confirm Password</label>
+                                    <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" placeholder="confirm password" required>
+                                </div>
+                            </div>
+                            <div class="col">
                             </div>
                         </div>
                         <div class="form-group">

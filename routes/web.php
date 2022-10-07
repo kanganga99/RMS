@@ -14,6 +14,7 @@ use App\Http\Controllers\AgentDamagedRoomController;
 use App\Http\Controllers\AgentTenantsController;
 use App\Http\Controllers\AgentTransactionsController;
 use App\Http\Controllers\AdminTransactionsController;
+use App\Http\Controllers\TenantController;
 use App\Http\Controllers\TenantProfileController;
 
 /*
@@ -141,5 +142,6 @@ Route::post('agent/transactions/update/{transaction_id}', [AgentTransactionsCont
 Route::post('agent/transactions/{transaction_id}', [AgentTransactionsController::class, 'destroy']);
 
 Route::get('admin/transactions/', [AdminTransactionsController::class, 'index']);
+Route::get('tenants/', [TenantController::class, 'index']);
 
 

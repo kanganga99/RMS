@@ -50,23 +50,12 @@ class AdminTenantsController extends Controller
         $tenant =tenant::create($request->all());
         $tenant->save(); 
 
-        // $tenant->roles()->sync($request->role);
         $tenant ->posts()->sync($request->posts);
-        //  if (Auth::attempt(['email' => $email, 'password' => $password, 'category_id' => '2'])) {
-        //         $tenant = Auth::tenant();
-        //         Session::put('name', $tenant->name);
-        //     }
+        // session()->flash('success', 'Added successfully');
         return redirect('admin/tenants');
-        // return redirect(route('user.index'));
-        // return $request->all();
+      
     }
-    //     $tenant = new Tenant;
-    //     $input = $request->all();
-    //     Tenant::create($input);
-    //     session()->flash('success', 'Added successfully');
-       
-    // }
-
+  
     public function show($id)
     {
         $tenant = Tenant::find($id);

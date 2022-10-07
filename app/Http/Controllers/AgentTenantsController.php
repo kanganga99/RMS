@@ -9,15 +9,9 @@ use App\Models\Post;
 
 use Illuminate\Support\Facades\Auth;
 
-
-
 class AgentTenantsController extends Controller
 {
-            /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+
     public function __construct()
     {
         $this->middleware('agent');
@@ -27,7 +21,6 @@ class AgentTenantsController extends Controller
     {
   
     $tenants  = Tenant::where('post_id',optional(Auth::guard('agent')->user())->id)->get();
-    // $tenants = Tenant::find('post_id',optional(Auth::user())->id)->get();    
 
     return view('agent.tenants.index',compact('tenants'));
 
@@ -40,11 +33,20 @@ class AgentTenantsController extends Controller
 
     public function store(Request $request)
     {
-        $input = $request->all();
-        Tenant::create($input);
-        // $tenant->post_id=$request->session()->get('post_id');
+        
+        $this->validate($request,[
+        'name' => ['required', 'string','max:50'],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:agents'],
+        'password' =>['required', 'string', 'min:8', 'confirmed'],
+        'phoneno' => 'required|umeric',
+        'houseno' => ['required', 'string'],
+        'idno' => 'required|numeric', 'unique:agents',
+        ]);
 
-        // $request->post_id = auth()->id();
+        $request['password'] = bcrypt($request->password);
+        $tenant = new tenant;
+        $tenant = tenant::create($request->all());
+        $tenant ->save();
         session()->flash('success', 'Added successfully');
         return redirect('agent/tenants');
     }
