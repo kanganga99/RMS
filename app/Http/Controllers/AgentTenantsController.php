@@ -27,7 +27,6 @@ class AgentTenantsController extends Controller
     {
   
     $tenants  = Tenant::where('post_id',optional(Auth::guard('agent')->user())->id)->get();
-    // $tenants = Tenant::find('post_id',optional(Auth::user())->id)->get();    
 
     return view('agent.tenants.index',compact('tenants'));
 
@@ -59,6 +58,7 @@ class AgentTenantsController extends Controller
 
         $tenant ->posts()->sync($request->posts);
         session()->flash('success', 'Added successfully');
+        // dd($request->all());
         return redirect('agent/tenants');
 
     }
@@ -84,15 +84,10 @@ class AgentTenantsController extends Controller
             // 'password' => ['required', 'string', 'min:8', 'confirmed'],
             'phoneno' => 'required|numeric',
             'houseno' => ['required', 'string'],
-            // 'idno' => 'required|numeric','unique:admins',   
-
         ]);
-
         $request->status? : $request['status']=0;
         $tenant = Tenant::where('id',$id)->update($request->except('_token','_method','post'));
-        // $user->posts()->sync($request->posts);
         Tenant::find($id)->posts()->sync($request->post);
-        // return redirect(route('user.index'))->with('message','user updated');
     return redirect('admin/tenants')->with('message', 'tenant Updated!');
     }
 
@@ -102,3 +97,6 @@ class AgentTenantsController extends Controller
         return redirect('agent/tenants')->with('flash message', 'tenant deleted!');
     }
 }
+
+
+// dd($request->all());

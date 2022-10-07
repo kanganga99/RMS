@@ -13,7 +13,7 @@ class TenantsController extends Controller
     public function index()
     {
         $transactions = Transactions::all();
-        return view('agent.transactions.index')->with('transactions', $transactions);
+        return view('tenant.index')->with('transactions', $transactions);
 
         $transactions  = Transactions::where('post_id', optional(Auth::user())->id)->get();
         // $tenants = Tenant::find('post_id',optional(Auth::user())->id)->get(); 

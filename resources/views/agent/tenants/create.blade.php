@@ -55,12 +55,25 @@
                                         @if (old('status') == 3) checked @endif value="3">Status</label>
                             </div>
                         </div>
+                        {{-- <input type="hidden" class="form-control" style="border-width:2px; border-style: solid ;" id="hiddenexp" value="" name="post_id"> --}}
                         <div style="text-align:center;">
                             <button type="submit" class="btn btn-success center" name="submit">Save</button>
                         </div>
                     </form>
+
+                    <script>
+                        $(document).ready(function() {
+                            $('.paybtn').click(function() {
+                                var row = $(this).closest('tr');
+                                var exp = row.find('#expensename').text();
+                                $('#hiddenexp').val(exp);
+                                console.log(exp);
+                            });
+                        });
+                    </script>
                 </div>
             </div>
+
         </section>
     </div>
 @stop

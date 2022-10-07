@@ -49,6 +49,7 @@ class AdminTenantsController extends Controller
         $tenant->save();
 
         $tenant->posts()->sync($request->posts);
+        session()->flash('success', 'Added successfully');
         return redirect('admin/tenants');
     }
     public function show($id)

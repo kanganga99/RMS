@@ -20,27 +20,45 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">{{ __('Bills') }}</div>
-                    {{ Session::get('post_id') }}
+                    {{-- {{ Session::get('post_id') }} --}}
                     <div class="card-body">
-                            <table id="example" class="table table-bordered table-striped">
-                                <thead>
+
+                        {{-- <table id="example" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>House Number</th>
+                                    <th>Billing For</th>
+                                    <th>Expected Amount</th>
+                                    <th>Amount Paid</th>
+                                    <th>Balance</th>
+                                    <th>Date Paid</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($transactions as $item)
                                     <tr>
-                                        <th>#</th>
-                                        <th>Name</th>
-                                        <th>House Number</th>
-                                        <th>Billing For</th>
-                                        <th>Expected Amount</th>
-                                        <th>Amount Paid</th>
-                                        <th>Balance</th>
-                                        <th>Date Paid</th>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->houseno }}</td>
+                                        <td>{{ $item->billingfor }}</td>
+                                        <td>{{ $item->expectedamount }}</td>
+                                        <td>{{ $item->amountpaid }}</td>
+                                        <td>{{ $item->balance }}</td>
+                                        <td>{{ $item->datepaid }}</td>
+                                        <td>
+                                            <a href="{{ url('agent/transactions/edit/' . $item->id) }}"
+                                                title="Edit transaction"><button class="btn btn-primary btn-sm"><i
+                                                        class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                        </td>
                                     </tr>
-                                </thead> 
-                                <tbody >
-                                    
-                                </tbody>          
-                            </table>
+                                @endforeach
+                            </tbody>
+                        </table> --}}
+
                         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-default">
-                            {{-- <a href="{{ url('agent/tenants/create') }}"></a> --}}
                             Make Payment
                         </button>
                         <div class="modal fade" id="modal-default">
@@ -127,10 +145,7 @@
                                             </div>
                                         </section>
                                     </div>
-                                    {{-- <div class="modal-footer justify-content-between">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
-                    </div> --}}
+                                
                                 </div>
                                 <!-- /.modal-content -->
                             </div>

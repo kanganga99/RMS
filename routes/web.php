@@ -128,10 +128,10 @@ Route::post('agent/transactions/{transaction_id}', [AgentTransactionsController:
 
 Route::get('admin/transactions/', [AdminTransactionsController::class, 'index']);
 
-Route::get('transactions/', [TenantsController::class, 'create']);
+Route::get('tenant/index', [TenantsController::class, 'index']);
+// Route::get('transactions/', [TenantsController::class, 'create']);
 Route::post('transactions/store', [TenantsController::class, 'store']);
 
-Route::get('transactions{transactions_id}', [TenantsController::class, 'destroy']);
 
 
 

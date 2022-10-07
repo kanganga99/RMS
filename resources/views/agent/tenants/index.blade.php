@@ -21,7 +21,7 @@
         
         <div class="card">
           <div class="card-header">
-            <a href="{{ url('agent/tenants/create') }}" class="btn btn-success btn-sm" title="Add New Tenant">
+            <a href="{{ url('agent/tenants/create') }}" class="btn btn-success btn-sm addbtn" title="Add New Tenant">
               <i class="fa fa-plus" aria-hidden="true"></i> Add New
           </a>          
           </div>
@@ -36,7 +36,6 @@
                         <th>House Number</th>
                         <th>ID Number</th>
                         <th>Email</th>
-                        {{-- <th>Password</th> --}}
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -61,6 +60,16 @@
             </table>
           </div>
         </div>
+        <script>
+          $(document).ready(function() {
+              $('.addbtn').click(function() {
+                  var row = $(this).closest('tr');
+                  var exp = row.find('#post_id').text();
+                  $('#post_id').val(exp);
+                  console.log(exp);
+              });
+          });
+      </script>
           </section>
         </div>
 @endsection
