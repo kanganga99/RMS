@@ -12,5 +12,3 @@
 ### >php artisan make:factory AdminFactory
 ### >php artisan migrate
 ### >php artisan make:model Agent -m
-
-
