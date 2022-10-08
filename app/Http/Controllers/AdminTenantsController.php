@@ -74,30 +74,20 @@ class AdminTenantsController extends Controller
         $this->validate($request, [
             'name' => ['required', 'string', 'max:50'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:admins'],
-            // 'password' => ['required', 'string', 'min:8', 'confirmed'],
             'phoneno' => 'required|numeric',
             'houseno' => ['required', 'string'],
-            // 'idno' => 'required|numeric','unique:admins',   
 
         ]);
 
         $request->status ?: $request['status'] = 0;
         $tenant = Tenant::where('id', $id)->update($request->except('_token', '_method', 'post'));
-        // $user->posts()->sync($request->posts);
         Tenant::find($id)->posts()->sync($request->post);
-        // return redirect(route('user.index'))->with('message','user updated');
         return redirect('admin/tenants')->with('message', 'tenant Updated!');
-
-        // $tenant = Tenant::find($id);
-        // $input = $request->all();
-        // $tenant->update($input);
     }
 
     public function destroy($id)
     {
 
-        // User::where('id',$id)->delete();
-        // return redirect()->back()->with('message','user deleted successfully');
         Tenant::where('id', $id)->delete();
         return redirect('admin/tenants')->with('message', 'tenant deleted!');
     }

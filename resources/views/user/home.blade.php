@@ -1,16 +1,11 @@
 @extends('user.app')
 @section('bg-img', asset('user/images/hero_1.jpg'))
-
-
 @section('heading', 'Buy & Sell Property Here')
 @section('sub-heading', 'Real Estates or Rentals')
-
 @section('bg-img2', asset('user/images/hero_2.jpg'))
-
 @section('heading2', 'Get the keys to your dream house')
 @section('sub-heading2', 'Its one click Away')
 @section('main-content')
-
     <div class="site-section" id="properties-section">
         <div class="container">
             <div class="row large-gutters">
@@ -20,34 +15,20 @@
                             <div class="ftco-media-1-inner">
                                 <a href="{{ route('post', $post->slug) }}" class="d-inline-block mb-4">
                                     <img src="{{ asset('images/post/' . $post->image) }}" alt="img;" class="img-fluid">
-
-                                    {{-- <img src="{{ asset('user/images/property_1.jpg') }}" alt="img;" class="img-fluid"> --}}
                                 </a>
-
-
                                 <div class="ftco-media-details">
-
                                     <h3>{{ $post->title }}</h3>
                                     <p>{{ $post->subtitle }}</p>
-
                                     <strong>
                                         $202000
                                     </strong>
                                 </div>
-
                             </div>
-
                         </div>
                     </div>
                 @endforeach
-
-                <!-- Divider-->
-                {{-- <hr class="my-4" /> --}}
-                <!-- Pager-->
-
             </div>
             {{ $posts->links() }}
-
         </div>
     </div>
 

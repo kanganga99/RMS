@@ -54,6 +54,16 @@
                                         @if (old('status') == 3) checked @endif value="3">Status</label>
                             </div>
                         </div>
+
+                        <div class="row">
+                            @foreach ($posts as $post)
+                                <div class="col-sm-1">
+                                    <div class="checkbox">
+                                        <label for=""><input type="checkbox" name="post_id" value="{{ $post->id }}">{{ $post->title }}</label>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
                         
                         <div style="text-align:center;">
                             <button type="submit" class="btn btn-success center" name="submit">Save</button>
