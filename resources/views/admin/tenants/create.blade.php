@@ -19,7 +19,6 @@
                                 <input type="text" name="phoneno" id="phoneno" class="form-control"><br>
                             </div>
                         </div>
-                        {{-- @include('admin.inc.messages') --}}
                         <div class="row mb-3">
                             <div class="col">
                                 <label class="form-label" for="inputhouseno">Houseno</label><br>

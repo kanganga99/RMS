@@ -4,10 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\DamagedRoom;
+use App\Models\post;
+
 
 
 class AdminDamagedRoomController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
    
     public function index()
     {
@@ -17,14 +23,23 @@ class AdminDamagedRoomController extends Controller
 
     public function create()
     {
-        return view('admin.damagedrooms.create');
+        $posts = post::all();
+        return view('admin.damagedrooms.create', compact('posts'));
     }
     public function store(Request $request)
     {
-        $input = $request->all();
-        DamagedRoom::create($input);
-        session()->flash('success', 'Added successfully');
-        return redirect('admin/damagedrooms');
+        $this->validate($request, [
+            'houseno' => ['required', 'string', 'max:50'],
+            'floor' => ['required', 'string', 'max:50'],
+            'description' => ['required', 'string']
+        ]);
+
+        $damagedroom = new damagedroom;
+        $damagedroom = damagedroom::create($request->all());
+        $damagedroom->save();
+        
+         session()->flash('success', 'Added successfully');
+         return redirect('admin/damagedrooms');
     }
 
     public function edit($id)

@@ -50,7 +50,7 @@ class AdminTenantsController extends Controller
         $tenant = tenant::create($request->all());
         $tenant->save();
 
-        $tenant->posts()->sync($request->posts);
+        // $tenant->posts()->sync($request->posts);
         session()->flash('success', 'Added successfully');
         return redirect('admin/tenants');
     }

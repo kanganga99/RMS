@@ -14,7 +14,7 @@
                         <label>Description</label><br>
                         <textarea id="description" name="description" rows="4" cols="50" class="form-control">
                         </textarea><br>
-                        {{-- <div class="row">
+                        <div class="row">
                                 @foreach ($posts as $post)
                                     <div class="col-sm-1">
                                         <div class="checkbox">
@@ -22,7 +22,7 @@
                                         </div>
                                     </div>
                                 @endforeach
-                            </div> --}}
+                            </div>
                         <button type="submit" class="btn btn-success toastrDefaultSuccess" name="submit">Save</button>
                     </form>
                 </div>
