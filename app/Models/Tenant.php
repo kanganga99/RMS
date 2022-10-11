@@ -11,10 +11,10 @@ class Tenant extends Authenticatable
 {
     use  Notifiable;
 
-    // public function posts()
-    // {
-    //     return $this->belongsToMany('App\Models\post','post_tenants')->withTimestamps();
-    // }
+    public function posts()
+    {
+        return $this->belongsToMany('App\Models\post','post_tenants')->withTimestamps();
+    }
     protected $table = 'tenants';
     protected $primarykey = 'id';
     protected $fillable = ['name','phoneno','houseno','idno','email','password','post_id'];

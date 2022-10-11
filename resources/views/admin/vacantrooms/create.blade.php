@@ -1,4 +1,5 @@
 @extends('admin.layouts.app')
+{{-- @extends('vacantrooms.layout') --}}
 @section('main-content')
     <div class="content-wrapper">
         <section class="content-header">

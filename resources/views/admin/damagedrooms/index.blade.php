@@ -34,7 +34,6 @@
                                 <th>#</th>
                                 <th>House Number</th>
                                 <th>Floor</th>
-                                <th>Post Id</th>
                                 <th>Description</th>
                                 <th>Action</th>
                             </tr>
@@ -45,7 +44,6 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->houseno }}</td>
                                     <td>{{ $item->floor }}</td>
-                                    <td>{{ $item->post_id }}</td>
                                     <td>{{ $item->description }}</td>
                                     <td>
                                         <a href="{{ url('admin/damagedrooms/edit/' . $item->id) }}" title="Edit damaged room"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
