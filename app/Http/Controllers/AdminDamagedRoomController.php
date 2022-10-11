@@ -36,7 +36,11 @@ class AdminDamagedRoomController extends Controller
 
         $damagedroom = new damagedroom;
         $damagedroom = damagedroom::create($request->all());
+
+
         $damagedroom->save();
+
+        
         
          session()->flash('success', 'Added successfully');
          return redirect('admin/damagedrooms');
