@@ -37,6 +37,7 @@
                         <th>ID Number</th>
                         <th>Status</th>
                         <th>Email</th>
+
                         <th>Post Id</th>
                         {{-- <th>Password</th> --}}
                         <th>Action</th>
@@ -50,10 +51,11 @@
                         <td>{{ $item->phoneno }}</td>
                         <td>{{ $item->houseno }}</td>
                         <td>{{ $item->idno }}</td>
-                        <td>{{ $item->status? 'active':'inactive' }}</td>
+                        <td>
+                          {{ $item->status? 'active':'inactive' }}
+                       </td>
                         <td>{{ $item->email }}</td>
                         <td>{{ $item->post_id }}</td>
-                        {{-- <td>{{ $item->password }}</td> --}}
                         <td>
                             <a href="{{ url('admin/tenants/show/' . $item->id )}}" title="View tenant"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                             <a href="{{ url('admin/tenants/edit/' . $item->id )}}" title="Edit tenant"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

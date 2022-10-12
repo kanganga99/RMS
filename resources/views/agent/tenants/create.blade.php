@@ -64,7 +64,6 @@
                                 </div>
                             @endforeach
                         </div>
-                        
                         <div style="text-align:center;">
                             <button type="submit" class="btn btn-success center" name="submit">Save</button>
                         </div>
