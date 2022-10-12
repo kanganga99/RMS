@@ -49,7 +49,7 @@
                                     <td>{{ $item->post_id }}</td>
                                     <td>
                                         <a href="{{ url('admin/damagedrooms/edit/' . $item->id) }}" title="Edit damaged room"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
-                                        <form method="POST" action="{{ url('damagedrooms' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
+                                        <form method="POST" action="{{ url('admin/damagedrooms' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                             {{ csrf_field() }}
                                             <button type="submit" class="btn btn-danger btn-sm" title="Delete damaged room" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                                         </form>

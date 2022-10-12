@@ -36,10 +36,12 @@ class AgentController extends Controller
         $users = User::whereHas('categories', function($query) {
             $query->where('name', 'categories');
         })->get(['name', 'id']);
-
-        $tenants = Tenant::count();
-        $damagedrooms = DamagedRoom::count();
-        $vacantrooms = VacantRoom::count();
+        $tenants  = Tenant::where('post_id',optional(Auth::guard('agent')->user())->id)->count();
+        $damagedrooms  = DamagedRoom::where('post_id',optional(Auth::guard('agent')->user())->id)->count();
+        $vacantrooms  = VacantRoom::where('post_id',optional(Auth::guard('agent')->user())->id)->count();
+        // $tenants = Tenant::count();
+        // $damagedrooms = DamagedRoom::count();
+        // $vacantrooms = VacantRoom::count();
 
             return  view('agent.home',compact('agents','tenants','damagedrooms','vacantrooms'));
         }

@@ -2,12 +2,16 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\DamagedRoom;
+use Illuminate\Support\Facades\Auth;
+
 
 class AgentDamagedRoomController extends Controller
 {
     public function index()
     {
-        $damagedrooms = DamagedRoom::all();
+
+    $damagedrooms  = DamagedRoom::where('post_id',optional(Auth::guard('agent')->user())->id)->get();
+        // $damagedrooms = DamagedRoom::all();
         return view('agent.damagedrooms.index')->with('damagedrooms', $damagedrooms);
     }
 

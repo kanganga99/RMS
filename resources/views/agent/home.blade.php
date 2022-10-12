@@ -1,6 +1,4 @@
 @extends('agent.layouts.app')
-
-
 @section('main-content')
     <div class="content-wrapper">
         <div class="content-header">
