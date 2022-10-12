@@ -5,6 +5,7 @@
             <div class="card">
                 <div class="card-header">Tenants Page</div>
                 <div class="card-body">
+
                     <form action="{{ url('agent/tenants/store') }}" method="post">
                         {!! csrf_field() !!}
                         <div class="row mb-3">
@@ -34,7 +35,7 @@
                             </div>
                             <div class="col">
                                 <label>Password</label><br>
-                                <input type="password" name="password" id="password" class="form-control"><br>
+                                <input type="text" name="password" id="password" class="form-control"><br>
                             </div>
                         </div>
                         <div class="row mb-3 ">
@@ -44,7 +45,7 @@
                                     <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" placeholder="confirm password" required>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col">  
                             </div>
                         </div>
                         <div class="form-group">
@@ -54,21 +55,12 @@
                                         @if (old('status') == 3) checked @endif value="3">Status</label>
                             </div>
                         </div>
-
-                        <div class="row">
-                            @foreach ($posts as $post)
-                                <div class="col-sm-1">
-                                    <div class="checkbox">
-                                        <label for=""><input type="checkbox" name="post_id" value="{{ $post->id }}">{{ $post->title }}</label>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                        
+                        {{-- <input type="hidden" class="form-control" style="border-width:2px; border-style: solid ;" id="hiddenexp" value="" name="post_id"> --}}
                         <div style="text-align:center;">
                             <button type="submit" class="btn btn-success center" name="submit">Save</button>
                         </div>
                     </form>
+
                     <script>
                         $(document).ready(function() {
                             $('.paybtn').click(function() {

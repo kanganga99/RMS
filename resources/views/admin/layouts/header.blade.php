@@ -37,11 +37,14 @@
                  </form>
              </div>
          </li>
+
+
          <li class="nav-item">
              <a class="nav-link" data-widget="fullscreen" href="#" role="button">
                  <i class="fas fa-expand-arrows-alt"></i>
              </a>
          </li>
+
          <li class="nav-item dropdown">
              <a class="nav-link" data-toggle="dropdown" href="#">
                  <i class="far fa-user"></i>
@@ -109,22 +112,33 @@
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="{{ url('admin/tenants') }}" class="nav-link">
-                         <i class="far fa-circle nav-icon"></i>
-                         <p>Tenants</p>
+                     <a href="#" class="nav-link">
+                         <i class="nav-icon fas fa-table"></i>
+                         <p>
+                             Property One
+                             <i class="fas fa-angle-left right"></i>
+                         </p>
                      </a>
-                 </li>
-                 <li class="nav-item">
-                     <a href="{{ url('admin/vacantrooms') }}" class="nav-link">
-                         <i class="far fa-circle nav-icon"></i>
-                         <p>Vacant Rooms</p>
-                     </a>
-                 </li>
-                 <li class="nav-item">
-                     <a href="{{ url('admin/damagedrooms') }}" class="nav-link">
-                         <i class="far fa-circle nav-icon"></i>
-                         <p>Damaged Rooms</p>
-                     </a>
+                     <ul class="nav nav-treeview">
+                         <li class="nav-item">
+                             <a href="{{ url('admin/tenants') }}" class="nav-link">
+                                 <i class="far fa-circle nav-icon"></i>
+                                 <p>Tenants</p>
+                             </a>
+                         </li>
+                         <li class="nav-item">
+                             <a href="{{ url('admin/vacantrooms') }}" class="nav-link">
+                                 <i class="far fa-circle nav-icon"></i>
+                                 <p>Vacant Rooms</p>
+                             </a>
+                         </li>
+                         <li class="nav-item">
+                             <a href="{{ url('admin/damagedrooms') }}" class="nav-link">
+                                 <i class="far fa-circle nav-icon"></i>
+                                 <p>Damaged Rooms</p>
+                             </a>
+                         </li>
+                     </ul>
                  </li>
                  <li class="nav-item">
                      <a href="{{ url('admin/transactions') }}" class="nav-link">

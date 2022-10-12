@@ -14,7 +14,6 @@ use App\Http\Controllers\AgentDamagedRoomController;
 use App\Http\Controllers\AgentTenantsController;
 use App\Http\Controllers\AgentTransactionsController;
 use App\Http\Controllers\AdminTransactionsController;
-// use App\Http\Controllers\TenantController;
 use App\Http\Controllers\TenantProfileController;
 use App\Http\Controllers\TenantsController;
 
@@ -54,6 +53,8 @@ Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->group( function
     Route::resource('/agent','AgentController');
     Route::resource('/post','PropertyController');
     Route::resource('/category','LocationController');
+
+
 
 });
 
@@ -126,7 +127,6 @@ Route::post('agent/transactions/update/{transaction_id}', [AgentTransactionsCont
 Route::post('agent/transactions/{transaction_id}', [AgentTransactionsController::class, 'destroy']);
 
 Route::get('admin/transactions/', [AdminTransactionsController::class, 'index']);
-// Route::get('tenants/', [TenantController::class, 'index']);
 
 Route::get('tenant/index', [TenantsController::class, 'index']);
 // Route::get('transactions/', [TenantsController::class, 'create']);

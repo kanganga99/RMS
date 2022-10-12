@@ -9,9 +9,15 @@ use App\Models\post;
 
 use Illuminate\Support\Facades\Auth;
 
+
+
 class AgentTenantsController extends Controller
 {
-
+            /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->middleware('agent');
@@ -62,6 +68,7 @@ class AgentTenantsController extends Controller
         $tenant = Tenant::find($id);
         return view('agent.tenants.show')->with('tenants',$tenant);
     }
+
     public function edit($id)
     {
         $tenant = Tenant::find($id);

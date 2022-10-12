@@ -37,8 +37,6 @@
                         <th>ID Number</th>
                         <th>Status</th>
                         <th>Email</th>
-
-                        <th>Post Id</th>
                         {{-- <th>Password</th> --}}
                         <th>Action</th>
                     </tr>
@@ -51,7 +49,6 @@
                         <td>{{ $item->phoneno }}</td>
                         <td>{{ $item->houseno }}</td>
                         <td>{{ $item->idno }}</td>
-                        <td>{{ $item->post_id }}</td>
                         <td>
                     
                           {{ $item->status? 'active':'inactive' }}

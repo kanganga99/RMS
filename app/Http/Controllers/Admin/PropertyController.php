@@ -68,8 +68,11 @@ class PropertyController extends Controller
             $file->move('images/post/', $filename);
             $post->image = $filename;
         }
+
          $post->save(); 
          $post->categories()->sync($request->categories);
+
+
          session()->flash('success', 'Added successfully');
          return redirect (route('post.index'));
     }
