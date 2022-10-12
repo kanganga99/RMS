@@ -95,6 +95,8 @@ Route::get('admin/damagedrooms/edit/{damagedroom_id}', [AdminDamagedRoomControll
 Route::post('admin/damagedrooms/update/{damagedroom_id}', [AdminDamagedRoomController::class, 'update']);
 Route::post('admin/damagedrooms/{damagedroom_id}', [AdminDamagedRoomController::class, 'destroy']);
 
+Route::get('admin/transactions/', [AdminTransactionsController::class, 'index']);
+
 Route::get('agent/tenants/', [AgentTenantsController::class, 'index']);
 Route::get('agent/tenants/create', [AgentTenantsController::class, 'create']);
 Route::post('agent/tenants/store', [AgentTenantsController::class, 'store']);
@@ -125,7 +127,6 @@ Route::get('agent/transactions/edit/{transaction_id}', [AgentTransactionsControl
 Route::post('agent/transactions/update/{transaction_id}', [AgentTransactionsController::class, 'update']);
 Route::post('agent/transactions/{transaction_id}', [AgentTransactionsController::class, 'destroy']);
 
-Route::get('admin/transactions/', [AdminTransactionsController::class, 'index']);
 // Route::get('tenants/', [TenantController::class, 'index']);
 
 Route::get('tenant/index', [TenantsController::class, 'index']);
