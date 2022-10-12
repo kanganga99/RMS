@@ -74,14 +74,13 @@ class AgentTenantsController extends Controller
         $this->validate($request,[
             'name' => ['required', 'string', 'max:50'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:admins'],
-            // 'password' => ['required', 'string', 'min:8', 'confirmed'],
             'phoneno' => 'required|numeric',
             'houseno' => ['required', 'string'],
         ]);
         $request->status? : $request['status']=0;
         $tenant = Tenant::where('id',$id)->update($request->except('_token','_method','post'));
         Tenant::find($id)->posts()->sync($request->post);
-    return redirect('admin/tenants')->with('message', 'tenant Updated!');
+    return redirect('agent/tenants')->with('message', 'tenant Updated!');
     }
 
     public function destroy($id)
@@ -91,5 +90,3 @@ class AgentTenantsController extends Controller
     }
 }
 
-
-// dd($request->all());
