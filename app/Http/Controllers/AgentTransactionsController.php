@@ -10,21 +10,21 @@ class AgentTransactionsController extends Controller
 {
     public function index()
     {
-        $transactions = Transactions::all();
+    $transactions  = Transactions::where('houseno', optional(Auth::guard('agent')->user())->id)->get();
         return view('agent.transactions.index')->with('transactions', $transactions);
-        $transactions  = Transactions::where('post_id', optional(Auth::guard('agent')->user())->id)->get();
     }
 
     public function create()
     {
-        return view('agent.transactions.create');
+        // $transactions =  Transactions::where('room_id', session('houseno')); 
+        return view('agent.transactions.create' , compact('transactions'));
     }
 
     public function store(Request $request)
     {
         $input = $request->all();
         Transactions::create($input);
-        session()->flash('success', 'Added successfully');
+        session()->flash('success', 'Payment successfully');
         return redirect('agent/transactions');
     }
 

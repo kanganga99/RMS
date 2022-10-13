@@ -13,6 +13,7 @@ use App\Models\Category;
 use App\Models\DamagedRoom;
 use App\Models\VacantRoom;
 use App\Models\Tenant;
+use App\Models\Room;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
@@ -37,19 +38,17 @@ class AgentController extends Controller
             $query->where('name', 'categories');
         })->get(['name', 'id']);
         $tenants  = Tenant::where('post_id',optional(Auth::guard('agent')->user())->id)->count();
+        // $rooms  = Room::where('post_id',optional(Auth::guard('agent')->user())->id)->count();
         $damagedrooms  = DamagedRoom::where('post_id',optional(Auth::guard('agent')->user())->id)->count();
         $vacantrooms  = VacantRoom::where('post_id',optional(Auth::guard('agent')->user())->id)->count();
-        // $tenants = Tenant::count();
-        // $damagedrooms = DamagedRoom::count();
-        // $vacantrooms = VacantRoom::count();
+        $rooms = $tenants + $damagedrooms + $vacantrooms ;
 
-            return  view('agent.home',compact('agents','tenants','damagedrooms','vacantrooms'));
+            return  view('agent.home',compact('agents','tenants','rooms','damagedrooms','vacantrooms'));
         }
         
     public function AgentLogout(){
         Session::flush();
         Auth::guard('agent')->logout();
-        
         return redirect()->route('agent.login')->with('error','Agent Logged out Successfully');
     }
 }

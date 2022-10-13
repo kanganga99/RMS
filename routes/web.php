@@ -40,17 +40,11 @@ Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->group( function
 
     Route::get('/login','Auth\LoginController@showLoginForm')->name('admin.login');
     Route::post('/login','Auth\LoginController@login');
-
-
-
-    // Route::get('/login','AdminController@Index')->name('login-form');
-    // Route::post('/login/owner','AdminController@Login')->name('admin.login');
-    // Route::get('/dashboard','AdminController@Dashboard')->name('admin.dashboard')->middleware('admin');
+  
     Route::get('/logout','AdminController@AdminLogout')->name('admin.logout');
     Route::get('/register','AdminController@AdminRegister')->name('admin.register');
     Route::post('/register/create','AdminController@AdminRegisterCreate')->name('admin.register.create');
 
-    // Route::resource('/user','UserController');
     Route::resource('/agent','AgentController');
     Route::resource('/post','PropertyController');
     Route::resource('/category','LocationController');
@@ -66,6 +60,14 @@ Route::prefix('agent')->namespace('App\Http\Controllers\Agent')->group( function
     Route::get('/logout','AgentController@AgentLogout')->name('agent.logout')->middleware('agent');
     Route::get('/register','AgentController@AgentRegister')->name('agent.register');
     Route::post('/register/create','AgentController@AgentRegisterCreate')->name('agent.register.create');
+
+    Route::get('/rooms/', 'RoomsController@index');
+    Route::get('/rooms/create', 'RoomsController@create');
+    Route::post('/rooms/store', 'RoomsController@store');
+    Route::get('/rooms/edit/{room_id}', 'RoomsController@edit');
+    Route::post('/rooms/update/{room_id}', 'RoomsController@update');
+    Route::post('/rooms/{room_id}', 'RoomsController@destroy');
+
 
 });
 

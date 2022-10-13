@@ -20,7 +20,9 @@
                         <div class="row mb-3">
                             <div class="col">
                                 <label class="form-label" for="inputhouseno">Houseno</label><br>
-                                <input type="text" name="houseno" id="houseno" class="form-control">
+                                <select name="houseno" id="houseno" type="text" class="form-control">
+                                    
+                                </select>
                             </div>
                             <div class="col">
                                 <label>ID Number</label><br>

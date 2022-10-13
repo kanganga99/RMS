@@ -7,16 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
 
-class VacantRoom extends Model
+class Room extends Model
 {
     use  Notifiable;
-    protected $table = 'vacantrooms';
+    protected $table = 'rooms';
     protected $primarykey = 'id';
-    protected $fillable = ['houseno','floor','post_id'];
+    protected $fillable = ['houseno','floor','description','post_id'];
     public function getRouteKeyName(){
         return 'slug';
     }
     public function profile(){
-        return $this->hasOne(Profile::class, 'vacantroom_id');
+        return $this->hasOne(Profile::class, 'room_id');
     }
+
 }
