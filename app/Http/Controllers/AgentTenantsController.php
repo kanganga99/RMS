@@ -7,8 +7,6 @@ use App\Models\Tenant;
 use App\Models\post;
 use App\Models\Transactions;
 
-
-
 use Illuminate\Support\Facades\Auth;
 
 class AgentTenantsController extends Controller
@@ -24,8 +22,9 @@ class AgentTenantsController extends Controller
 }
     public function create()
     {
-        $posts = post::all ();
-        return view('agent.tenants.create', compact('posts'));
+
+        return view('agent.tenants.create');
+
     }
     public function store(Request $request)
     {   
@@ -47,9 +46,10 @@ class AgentTenantsController extends Controller
     }
     public function show($id)
     {
-        // $transactions =  Transactions::where('room_id', session('houseno')); 
-        $tenant = Tenant::find($id);
-        return view('agent.tenants.show', compact('tenant'));
+        $transactions = transactions::all();
+        // $posts = post::all();
+        $tenants = Tenant::find($id);
+        return view('agent.tenants.show', compact('tenants','transactions'));
     }
     public function edit($id)
     {

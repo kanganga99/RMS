@@ -68,26 +68,19 @@ class AdminTenantsController extends Controller
 
         return view('admin.tenants.edit', compact('tenant', 'posts'));
     }
-
     public function update(Request $request, $id)
     {
         $this->validate($request, [
             'name' => ['required', 'string', 'max:50'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:admins'],
-            'phoneno' => 'required|numeric',
-            'houseno' => ['required', 'string'],
-
+           'email' => ['required', 'string', 'email', 'max:255', 'unique:admins'],
         ]);
-
         $request->status ?: $request['status'] = 0;
         $tenant = Tenant::where('id', $id)->update($request->except('_token', '_method', 'post'));
         Tenant::find($id)->posts()->sync($request->post);
         return redirect('admin/tenants')->with('message', 'tenant Updated!');
     }
-
     public function destroy($id)
     {
-
         Tenant::where('id', $id)->delete();
         return redirect('admin/tenants')->with('message', 'tenant deleted!');
     }

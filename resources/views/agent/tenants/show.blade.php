@@ -41,17 +41,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            {{-- <tr>
                                 <td></td>
                                 <td>October</td>
                                 <td>45000</td>
                                 <td>45000</td>
                                 <td>0</td>
                                 <td>30/9/2022</td>
-                            </tr>
+                            </tr> --}}
                         </tbody>
                     </table>
-
                 </div>
             </div>
         </section>

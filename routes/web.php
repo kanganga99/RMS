@@ -61,7 +61,7 @@ Route::prefix('agent')->namespace('App\Http\Controllers\Agent')->group( function
     Route::get('/register','AgentController@AgentRegister')->name('agent.register');
     Route::post('/register/create','AgentController@AgentRegisterCreate')->name('agent.register.create');
 
-    Route::get('/rooms/', 'RoomsController@index');
+    Route::get('/rooms', 'RoomsController@index');
     Route::get('/rooms/create', 'RoomsController@create');
     Route::post('/rooms/store', 'RoomsController@store');
     Route::get('/rooms/edit/{room_id}', 'RoomsController@edit');

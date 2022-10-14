@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Agent;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -38,7 +37,6 @@ class AgentController extends Controller
             $query->where('name', 'categories');
         })->get(['name', 'id']);
         $tenants  = Tenant::where('post_id',optional(Auth::guard('agent')->user())->id)->count();
-        // $rooms  = Room::where('post_id',optional(Auth::guard('agent')->user())->id)->count();
         $damagedrooms  = DamagedRoom::where('post_id',optional(Auth::guard('agent')->user())->id)->count();
         $vacantrooms  = VacantRoom::where('post_id',optional(Auth::guard('agent')->user())->id)->count();
         $rooms = $tenants + $damagedrooms + $vacantrooms ;
