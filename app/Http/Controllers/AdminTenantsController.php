@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Tenant;
 use App\Models\post;
+use App\Models\Transactions;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -50,14 +51,16 @@ class AdminTenantsController extends Controller
         $tenant = tenant::create($request->all());
         $tenant->save();
 
-        $tenant->posts()->sync($request->posts);
+        // $tenant->posts()->sync($request->posts);
         session()->flash('success', 'Added successfully');
         return redirect('admin/tenants');
     }
     public function show($id)
+    
     {
-        $tenant = Tenant::find($id);
-        return view('admin.tenants.show')->with('tenants', $tenant);
+        $transactions = Transactions::all();
+        $tenants = Tenant::find($id);
+        return view('admin.tenants.show', compact('transactions', 'tenants'));
     }
 
     public function edit($id)
@@ -68,19 +71,26 @@ class AdminTenantsController extends Controller
 
         return view('admin.tenants.edit', compact('tenant', 'posts'));
     }
+
     public function update(Request $request, $id)
     {
         $this->validate($request, [
             'name' => ['required', 'string', 'max:50'],
-           'email' => ['required', 'string', 'email', 'max:255', 'unique:admins'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:admins'],
+            'phoneno' => 'required|numeric',
+            'houseno' => ['required', 'string'],
+
         ]);
+
         $request->status ?: $request['status'] = 0;
         $tenant = Tenant::where('id', $id)->update($request->except('_token', '_method', 'post'));
         Tenant::find($id)->posts()->sync($request->post);
         return redirect('admin/tenants')->with('message', 'tenant Updated!');
     }
+
     public function destroy($id)
     {
+
         Tenant::where('id', $id)->delete();
         return redirect('admin/tenants')->with('message', 'tenant deleted!');
     }

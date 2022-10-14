@@ -29,6 +29,29 @@
                                             <b>Email: {{ $tenants->email }}<br>
                         </div>
                     </div>
+
+                    {{-- <div class="row">
+                        <div class="col-md-3 hh" style="float:right">
+                            <b>Billing For: {{ $transactions->billingfor }}<br>
+                                <b>Expected Amount: {{ $transactions->expectedamount }}<br>
+                                    <b>Amount Paid: </b>{{ $transactions->amountpaid }}<br>
+                                    <b>Balance: {{ $transactions->balance }}<br>
+                                        <b>Date Paid: {{ $transactions->datepaid }}<br>
+                        </div>
+                    </div> --}}
+
+
+                    <div class="row">
+                        <div class="col-md-6 hh" style="float:right">
+                            <b>Name: {{ $tenants->name }}<br>
+                                <b> Phone Number: {{ $tenants->phonenumber }}<br>
+                                    <b>House Number: {{ $tenants->houseno }}<br>
+                                        <b>ID Number: {{ $tenants->idno }}<br>
+                                            <b>Email: {{ $tenants->email }}<br>
+
+                        </div>
+
+                    </div>
                     <table class="table " id="example1">
                         <thead>
                             <tr class="tt">
