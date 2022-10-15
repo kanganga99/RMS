@@ -41,12 +41,12 @@
                         <div class="small-box bg-warning">
                             <div class="inner">
                                 <h3>{{ $rooms }}</h3>
-                                <p>Rooms</p>
+                                <p>Total Rooms</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-person-add"></i>
                             </div>
-                            <a href="{{ url('agent/rooms') }}" class="small-box-footer">More info <i
+                            <a href="#" class="small-box-footer">More info <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>

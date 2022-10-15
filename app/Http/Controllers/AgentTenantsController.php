@@ -22,8 +22,8 @@ class AgentTenantsController extends Controller
 }
     public function create()
     {
-
-        return view('agent.tenants.create');
+        $posts = post::all();
+        return view('agent.tenants.create', compact('posts'));
 
     }
     public function store(Request $request)
@@ -40,21 +40,22 @@ class AgentTenantsController extends Controller
         $tenant = new tenant;
         $tenant =tenant::create($request->all());
         $tenant->save(); 
-        $tenant ->posts()->sync($request->posts);
+        // $tenant ->posts()->sync($request->posts);
         session()->flash('success', 'Added successfully');
         return redirect('agent/tenants');
     }
     public function show($id)
     {
-        $transactions = transactions::all();
+        // $transactions = transactions::all();
         // $posts = post::all();
         $tenants = Tenant::find($id);
-        return view('agent.tenants.show', compact('tenants','transactions'));
+        return view('agent.tenants.show', compact('tenants'));
     }
     public function edit($id)
     {
         $tenant = Tenant::find($id);
-        return view('agent.tenants.edit')->with('tenants', $tenant);
+        $posts = post::all();
+        return view('agent.tenants.edit', compact('tenant','posts'));
     }
     public function update(Request $request, $id)
     {  

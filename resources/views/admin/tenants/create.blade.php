@@ -5,9 +5,7 @@
             <div class="card">
                 <div class="card-header">Tenants Page</div>
                 <div class="card-body">
-
                     <form action="{{ url('admin/tenants/store') }}" method="post">
-
                         {!! csrf_field() !!}
                         <div class="row mb-3">
                             <div class="col">
@@ -19,7 +17,6 @@
                                 <input type="text" name="phoneno" id="phoneno" class="form-control"><br>
                             </div>
                         </div>
-                        {{-- @include('admin.inc.messages') --}}
                         <div class="row mb-3">
                             <div class="col">
                                 <label class="form-label" for="inputhouseno">Houseno</label><br>
@@ -38,7 +35,6 @@
                                 </div>
                             </div>
                             <div class="col">
-
                                 <div class="form-group">
                                     <label for="password">Password</label>
                                     <input type="password" class="form-control" name="password" id="password" placeholder="password" required>

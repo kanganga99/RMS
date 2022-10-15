@@ -14,15 +14,13 @@
                             </div>
                             <div class="col">
                                 <label>Phonenumber</label><br>
-                                <input type="text" name="phoneno" id="phoneno" class="form-control"><br>
+                                <input type="text" name="phoneno" id="phoneno" class="form-control" required><br>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col">
                                 <label class="form-label" for="inputhouseno">Houseno</label><br>
-                                <select name="houseno" id="houseno" type="text" class="form-control">
-                                    
-                                </select>
+                                    <input type="text" name="houseo" id="houseno" class="form-control" required><br>                                   
                             </div>
                             <div class="col">
                                 <label>ID Number</label><br>

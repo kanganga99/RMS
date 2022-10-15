@@ -96,12 +96,12 @@
                          <p>Tenants</p>
                      </a>
                  </li>
-                 <li class="nav-item">
+                 {{-- <li class="nav-item">
                      <a href="{{ url('agent/rooms') }}" class="nav-link">
                          <i class="far fa-circle nav-icon"></i>
                          <p>Rooms</p>
                      </a>
-                 </li>
+                 </li> --}}
                  <li class="nav-item">
                      <a href="{{ url('agent/vacantrooms') }}" class="nav-link">
                          <i class="far fa-circle nav-icon"></i>

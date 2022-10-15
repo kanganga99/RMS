@@ -50,7 +50,6 @@
                                             <b>Email: {{ $tenants->email }}<br>
 
                         </div>
-
                     </div>
                     <table class="table " id="example1">
                         <thead>
