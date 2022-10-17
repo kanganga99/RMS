@@ -30,7 +30,7 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col-md-3 hh" style="float:right">
                             <b>Billing For: {{ $transactions->billingfor }}<br>
                                 <b>Expected Amount: {{ $transactions->expectedamount }}<br>
@@ -38,8 +38,8 @@
                                     <b>Balance: {{ $transactions->balance }}<br>
                                         <b>Date Paid: {{ $transactions->datepaid }}<br>
                         </div>
-                    </div>
-                    {{-- <table class="table " id="example1">
+                    </div> --}}
+                    <table class="table " id="example1">
                         <thead>
                             <tr class="tt">
                                 <th>ID</th>
@@ -60,7 +60,7 @@
                                 <td>30/9/2022</td>
                             </tr>
                         </tbody>
-                    </table> --}}
+                    </table>
                 </div>
             </div>
         </section>

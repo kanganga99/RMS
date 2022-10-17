@@ -9,16 +9,20 @@ use Illuminate\Support\Facades\Auth;
 
 class AgentTransactionsController extends Controller
 {
+    public function __construct()
+    {
+      $this->middleware('agent');
+    }
     public function index()
     {
     $transactions  = Transactions::where('post_id', optional(Auth::guard('agent')->user())->id)->get();
-        return view('agent.transactions.index')->with('transactions', $transactions);
+    $transaction = Transactions::where('houseno', optional(Auth::guard('agent')->user())->id)->get();
+        return view('agent.transactions.index', compact('transactions','transaction'));
+        // ->with('transactions', $transactions);
     }
 
     public function create()
     {
-        // $posts = post::all();
-        // $transactions = Transactions::all();
         return view('agent.transactions.create');
     }
 

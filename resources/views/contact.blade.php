@@ -52,5 +52,6 @@
         </div>
         <a href="#property-details" class="smoothscroll arrow-down"><span class="icon-arrow_downward"></span></a>
     </div>
+
 @endsection
 

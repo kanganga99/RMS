@@ -29,7 +29,7 @@
                         </div>
                         <div class="row mb-3 ">
                             <div class="col">
-                                <div class="form-group">
+                                <div class="form-group"> 
                                     <label for="email">Email</label>
                                     <input type="text" class="form-control" name="email" id="email"  placeholder="email" value="{{ old('email') }} ">
                                 </div>

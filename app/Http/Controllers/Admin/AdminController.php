@@ -30,17 +30,6 @@ class AdminController extends Controller
         $posts = post::count();
         return view('admin.home', compact('tenants','agents','posts'));
     }
-
-    // public function Login(Request $request)
-    // {
-    //     $check = $request->all();
-    //     if (Auth::guard('admin')->attempt(['email' => $check['email'], 'password' => $check['password']])) {
-    //         return redirect()->route('admin.dashboard')->with('success', 'Admin Logged in Successfully');
-    //     } else {
-    //         return back()>with('error', 'invalid credentials');
-    //     }
-    // }
-
     public function AdminLogout()
     {
         Auth::guard('admin')->logout();
